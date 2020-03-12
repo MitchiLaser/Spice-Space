@@ -1,0 +1,130 @@
+html,
+body{
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #fff;
+}
+body{
+    font-size: 1.1em;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+/* Allgemeine Eigenschaften, global definiert, später überschrieben */
+p{
+    margin: 0;
+}
+a,
+a:visited,
+a:link{
+    color: inherit;
+    text-decoration-line: inherit;
+    cursor: pointer;
+}
+a:active,
+a:hover{
+    text-decoration-line: underline;
+}
+
+
+/* spezifische Eigenschaften, überschreiben die allgemeinen */
+/* Strukturierung der Seite in 4 Haupt-Bestandteile:
+    Header, Nav, Main und Footer */
+body > *{
+    padding: 20px 5%;
+}
+header,
+footer,
+nav{
+    flex: 0 0 auto;
+    background-color: #1E88E5;
+    color: #fff;
+}
+header{
+    font-size: 2em;
+}
+header > a:active,
+header > a:hover{
+    text-decoration-line: none;
+}
+footer{
+    border-top: solid 1px #1565C0;
+}
+
+
+/* Gestalten des Navigations-Menüs */
+nav{
+    padding: 0;
+    border-bottom: solid 1px #1565C0;
+}
+nav > ul{
+    list-style-type: none;
+    margin: 0 5%;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+nav > ul > li{
+    padding: 0 10px;
+    margin-bottom: -1px;
+    /*border-left: solid 1px #1565C0;*/
+    min-width: auto;
+}
+nav > ul > li:first-child{
+    padding-left: 0;
+    border: none;
+}
+nav > ul > li:last-child{
+    padding-right: 0;
+}
+nav > ul > li > a{
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    border: solid 1px #1E88E5;
+    border-bottom: solid 1px #1565C0;
+    display: block;
+    border-radius: 5px 5px 0 0;
+}
+nav > ul:hover > li > a:not(:hover){
+    background-color: #1E88E5;
+    color: #fff;
+    border: solid 1px #1E88E5;
+    border-bottom: solid 1px #1565C0;
+}
+nav > ul > li > a:hover,
+nav > ul > li > a:active,
+nav > ul > li > a.active{
+    text-decoration-line: none;
+    background-color: #fff;
+    color: #1565C0;
+    border: solid 1px #1565C0;
+    border-bottom: solid 1px #fff;
+}
+
+
+/* Gestalten der Fußzeile */
+footer > ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Gestalten des für den Inhalt reservierten Bereichs */
+main{
+    flex: 1 1 auto;
+}
