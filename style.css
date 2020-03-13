@@ -14,12 +14,6 @@ body{
     flex-direction: column;
     
 }
-
-
-/* Allgemeine Eigenschaften, global definiert, später überschrieben */
-p{
-    margin: 0;
-}
 a,
 a:visited,
 a:link{
@@ -31,90 +25,25 @@ a:active,
 a:hover{
     text-decoration-line: underline;
 }
-
-
-/* spezifische Eigenschaften, überschreiben die allgemeinen */
-/* Strukturierung der Seite in 4 Haupt-Bestandteile:
-    Header, Nav, Main und Footer */
-body > *{
-    padding: 20px 5%;
-}
 header,
-footer,
-nav{
+footer{
     flex: 0 0 auto;
-    background-color: #1E88E5;
+    background-color: #78909C;
     color: #fff;
+    /*text-shadow: 3px 3px 4px #FF6E40;*/
 }
 header{
-    font-size: 2em;
+    font-size: 3.2em;
+    padding: 3% 5% 2% 5%;
 }
 header > a:active,
 header > a:hover{
     text-decoration-line: none;
 }
 footer{
-    border-top: solid 1px #1565C0;
+    padding: 20px 5%;
+    font-size: 1.1em;
 }
-
-
-/* Gestalten des Navigations-Menüs */
-nav{
-    padding: 0;
-    border-bottom: solid 1px #1565C0;
-}
-nav > ul{
-    list-style-type: none;
-    margin: 0 5%;
-    padding: 0;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: center;
-    flex-wrap: wrap;
-    cursor: pointer;
-}
-nav > ul > li{
-    padding: 0 10px;
-    margin-bottom: -1px;
-    /*border-left: solid 1px #1565C0;*/
-    min-width: auto;
-}
-nav > ul > li:first-child{
-    padding-left: 0;
-    border: none;
-}
-nav > ul > li:last-child{
-    padding-right: 0;
-}
-nav > ul > li > a{
-    padding: 5px;
-    margin: 0;
-    box-sizing: border-box;
-    border: solid 1px #1E88E5;
-    border-bottom: solid 1px #1565C0;
-    display: block;
-    border-radius: 5px 5px 0 0;
-}
-nav > ul:hover > li > a:not(:hover){
-    background-color: #1E88E5;
-    color: #fff;
-    border: solid 1px #1E88E5;
-    border-bottom: solid 1px #1565C0;
-}
-nav > ul > li > a:hover,
-nav > ul > li > a:active,
-nav > ul > li > a.active{
-    text-decoration-line: none;
-    background-color: #fff;
-    color: #1565C0;
-    border: solid 1px #1565C0;
-    border-bottom: solid 1px #fff;
-}
-
-
-/* Gestalten der Fußzeile */
 footer > ul{
     margin: 0;
     padding: 0;
@@ -122,9 +51,42 @@ footer > ul{
     display: flex;
     justify-content: space-between;
 }
-
-
-/* Gestalten des für den Inhalt reservierten Bereichs */
 main{
+    padding: 20px 5%;
+    flex: 1 1 auto;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+main > section{
+    display:  block;
+    min-width: 500px;
+    max-width: 30vw;
+    min-height: 20vh;
+    font-size: 2em;
+    color: #37474F;
+    line-height: 1.5;
+    box-sizing: border-box;
+    margin: 1vw 1vw 1vw 0;
+    border-radius: 5px;
+    display: flex;
+}
+main > section:nth-child(7n+0){background: linear-gradient(150deg, #FFCDD2 -25%, #fff 75%);}
+main > section:nth-child(7n+1){background: linear-gradient(150deg, #FFCCBC -25%, #fff 75%);}
+main > section:nth-child(7n+2){background: linear-gradient(150deg, #BBDEFB -25%, #fff 75%);}
+main > section:nth-child(7n+3){background: linear-gradient(150deg, #B2EBF2 -25%, #fff 75%);}
+main > section:nth-child(7n+4){background: linear-gradient(150deg, #F0F4C3 -25%, #fff 75%);}
+main > section:nth-child(7n+5){background: linear-gradient(150deg, #FFE0B2 -25%, #fff 75%);}
+main > section:nth-child(7n+6){background: linear-gradient(150deg, #D7CCC8 -25%, #fff 75%);}
+
+
+main > section > a{
+    display: block;
+    box-sizing: border-box;
+    padding: 2vh 1vw;
     flex: 1 1 auto;
 }
