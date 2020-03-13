@@ -63,10 +63,10 @@ main{
     flex-wrap: wrap;
 }
 main > section{
-    display:  block;
     min-width: 500px;
     max-width: 30vw;
-    min-height: 20vh;
+    min-height: 85px;
+    height: 20vh;
     font-size: 2em;
     color: #37474F;
     line-height: 1.5;
@@ -85,8 +85,18 @@ main > section:nth-child(7n+6){background: linear-gradient(150deg, #D7CCC8 -25%,
 
 
 main > section > a{
-    display: block;
     box-sizing: border-box;
     padding: 2vh 1vw;
     flex: 1 1 auto;
+    display:  flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+main > section > a > img{
+    align-self: flex-end;
+    filter: opacity(.5);
+    scale: 2;
 }
