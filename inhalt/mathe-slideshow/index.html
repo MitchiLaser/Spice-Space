@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Das ist Mathe</title>
+        <meta charset="utf-8">
+        <style>
+            html{
+                padding: 0;
+                margin: 0;
+                border: none;
+                overflow: hidden;
+            }
+            body{
+                padding: 0;
+                margin: 0;
+                border: none;
+                font-family: sans-serif;
+            }
+            div{
+                min-height: 100vh;
+                text-align: center;
+                font-size: 1.7rem;
+                line-height: 2rem;
+                padding: 0 5%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            div:first-child p,
+            div:first-child a{
+                color: #666;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+            }
+            div:nth-child(2){
+                text-align: justify;
+            }
+            div:nth-child(2) li:hover{
+                color: #06406c;
+            }
+            div:nth-child(8n+1){
+                background-color: #fff;
+                color: #000;
+            }
+            div:nth-child(8n+1) h1{
+                color: #000;
+            }
+            div:nth-child(8n+2){
+                background-color: #348fd4;
+                color: #fff;
+            }
+            div:nth-child(8n+2) h1{
+                color: #06406c;
+            }
+            div:nth-child(8n+3){
+                background-color: #06406c;
+                color: #fff;
+            }
+            div:nth-child(8n+3) h1{
+                color: #fff;
+            }
+            div:nth-child(8n+4){
+                background-color: #F2F2F2;
+                color: #000;
+            }
+            div:nth-child(8n+4) h1{
+                color: #666;
+            }
+            div:nth-child(8n+5){
+                background-color: #ffc19f;
+                color: #000;
+            }
+            div:nth-child(8n+5) h1{
+                color: #cc4037;
+            }
+            div:nth-child(8n+6){
+                background-color: #cc4037;
+                color: #4c0d09;
+            }
+            div:nth-child(8n+6) h1{
+                color: #4c0d09;
+            }
+            div:nth-child(8n+7){
+                background-color: #fff8c9;
+                color: #615400;
+            }
+            div:nth-child(8n+7) h1{
+                color: #2d2700;
+            }
+            div:nth-child(8n+8){
+                background-color: #C8E6C9;
+                color: #558B2F;
+            }
+            div:nth-child(8n+8) h1{
+                color: #1B5E20;
+            }
+            header{
+                font-size: 6rem;
+                line-height: 12rem;
+                text-transform: uppercase;
+                font-family: "Comic Sans MS",cursive;
+                text-align: center;
+            }
+            h1{
+                font-family: "Comic Sans MS",cursive;;
+                font-size: 2.5rem;
+                line-height: 3.5rem;
+                text-align: center;
+            }
+            ul{
+                list-style-type: square;
+                list-style-type: "→ ";
+                display: block;
+                line-height: 2rem;
+                font-size: 1.5rem;
+            }
+            li{
+                cursor: pointer;
+            }
+            a{
+                text-decoration: inherit;
+                text-decoration-line: inherit;
+                color: inherit;
+            }
+            /*math{
+                font-family: monospace;
+                display: inline;
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }*/
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                // Inhaltsverzeichnis
+                /*var content = document.querySelector("body").children[1].children[1].children;
+                for(var i = 0; i < content.length; i++){
+                    content[i].addEventListener("click", ClicKHandler(i));
+                }*/
+
+                document.querySelector("body").children[0].scrollIntoView({ behavior: 'smooth' });
+                var frame = 1;
+
+                // Click-Scroll
+                /*document.body.addEventListener("click",function(){
+                    document.querySelector("body").children[frame].scrollIntoView({ behavior: 'smooth' });
+                    frame++;
+                    if(frame >= document.querySelector("body").children.length){
+                        frame = 1;
+                    }
+                });
+
+		/* Inhaltsverzeichnis links generieren
+
+		function callback(k) {
+	            document.querySelector("body").children[k + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+
+        	function ClicKHandler(i) {
+                    return function () { callback(i) };
+                }*/
+
+                // Timer-Scroll
+                window.setInterval(function(){
+                    document.querySelector("body").children[frame].scrollIntoView({ behavior: 'smooth' });
+                    frame++;
+                    if(frame >= document.querySelector("body").children.length){
+                        frame = 2;
+                    }
+                }, 10000)
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <header>Das ist Mathe</header>
+            <h1>Einfach nur ein Witz</h1>
+        </div>
+        <!--<div>
+            <h1>Inhaltsverzeichnis</h1>
+            <ul>
+                <li>EINFACH</li>
+                <li>NUR</li>
+                <li>MATHE</li>
+                <li>WITZE</li>
+            </ul>
+        </div>-->
+        <div>
+            <h1>Was sagt ein Vektor bei der Drogenberatung?</h1>
+            <p>Hilfe, ich bin linear abhängig!</p>
+        </div>
+        <div>
+            <h1>Was sind 2 Lemma?</h1>
+            <p>Ein Dilemma</p>
+        </div>
+        <div>
+            <h1>Was ist ein Lichtjahr?</h1>
+            <p>Die Stromrechnung für 12 Monate</p>
+        </div>
+        <div>
+            <h1>Wie wurde das erste Atom gespalten?</h1>
+            <p>Otto Hahn gab es seinem Kind mit den Worten: Nicht kaputt machen!</p>
+        </div>
+        <div>
+            <h1>Wie schafft man es, einen riesengroßen Baum zu fällen?</h1>
+            <p>Man quadriert ihn, damit verschwindet die Wurzel</p>
+        </div>
+        <div>
+            <h1>Wissenschaftler konnten die Geschwindigkeit von Licht auf 50 km/h abbremsen</h1>
+            <p>Sie leiteten den Lichtstrahl einfach durch ein Postamt</p>
+        </div>
+        <div>
+            <h1>Warum können Seeräuber keinen Kreisumfang berechnen?</h1>
+            <p>Weil sie Pi raten müssen</p>
+        </div>
+        <div>
+            <h1>Ein Nullvektor kommt zum Psychater und erklärt ihm sein Problem:</h1>
+            <p>"Herr Doktor, bitte helfen Sie mir. Ich bin immer so orientierungslos!"</p>
+        </div>
+        <div>
+            <h1>neulich wurde ein Epsilon gefunden, das so klein ist, wenn man es duch 2 teilt, wird es negativ</h1>
+        </div>
+        <div>
+            <h1>Was haben Magnetfelder und Frauen gemeinsam?</h1>
+            <p>Sie lenken nur ab und verrichten keine Arbeit</p>
+        </div>
+        <div>
+            <h1>Lehrer: "75 % aller Schüler in dieser Klasse haben keine Ahnung von Prozentrechnung."</h1>
+            <p>Schüler: "Aber so viele sind wir doch gar nicht!"</p>
+        </div>
+        <div>
+            <h1>Mathematiker in der Physikprüfung</h1>
+            <p>Prof.: "Malen Sie doch mal eine Skizze vom Sinus."<br>
+                (Prüfling malt)<br>
+                Prof.: "Sieht doch schon ganz gut aus."</h1>
+            	Student: "Nein, das sollte die x-Achse sein, ich bin so aufgeregt."</p>
+        </div>
+        <div>
+            <h1>Anrufbeantworter eines Mathematikers:<br>
+                "Die Nummer die sie gewählt haben ist imaginär. Bitte drehen sie ihr Telefon um 90 Grad und probieren sie es erneut."</h1>
+        </div>
+        <div>
+            <h1>Treffen sich ein dx und ein Delta x</h1>
+            <p>Sagt das Delta x: "Sieh doch nicht immer alles so eng."</p>
+        </div>
+        <div>
+            <h1>Welches Tier kann addieren?</h1>
+            <p>Ein Oktoplus</p>
+        </div>
+        <div>
+            <h1>Was macht ein Mathematiker im Garten? </h1>
+            <p>Wurzeln ziehen</p>
+        </div>
+        <div>
+            <h1>Der Chefkoch erklärt seinem Lehrling: "Also, du nimmst zwei Drittel Wasser, ein Drittel Sahne und ein Drittel Brühe und dann..."</h1>
+            <h1>"Chef", unterbricht der Lehrling, "das sind doch dann schon vier Drittel."</h1>
+            <p>Darauf der Chefkoch zornig: "Mensch, sei doch nicht so umständlich, dann nimmst du halt einen größeren Topf!"</p>
+        </div>
+        <div>
+            <h1>Wenn du einen Mathematiker wählen lässt zwischen einem Brötchen und ewiger Seligkeit, was nimmt er?</h1>
+            <p>Natürlich das Brötchen: Nichts ist besser als ewige Seligkeit - und ein belegtes Brötchen ist besser als nichts ...</p>
+        </div>
+        <div>
+            <h1>Wo stellt sich ein Mathematiker im Zimmer hin, wenn es kalt ist?</h1>
+            <p>In eine Ecke, da sind 90°</p>
+        </div>
+        <div>
+            <h1>Was sagt ein Gleichungssystem zu seinen besoffenen Variablen?</h1>
+            <p>"Ich schmeiße euch gleich alle raus!"</p>
+        </div>
+        <div>
+            <h1>5 von 4 Leuten haben Probleme mit Mathematik!</h1>
+        </div>
+        <div>
+            <h1>Man soll schon Programmierer gesehen haben, die im Aufzug die drei drücken, wenn sie in den vierten Stock wollen...</h1>
+        </div>
+        <div>
+            <h1>Probleme in Mathe?</h1>
+            <h1>Dann ruf an:
+                <math>
+                    <mn>1</mn>
+                    <mo>-</mo>
+                    <mn>800</mn>
+                    <mo>-</mo>
+                    <mo>[</mo>
+                        <mo>(</mo>
+                        <mn>10</mn>
+                        <mi>x</mi>
+                        <mo>)</mo>
+                        <msup>
+                            <mrow>
+                                <mo>(</mo>
+                                <mn>13</mn>
+                                <mi>i</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            <mn>2</mn>
+                        </msup>
+                    <mo>]</mo>
+                    <mo>-</mo>
+                    <mfrac>
+                        <mrow>
+                            <mo>sin(</mo>
+                            <mi>xy</mi>
+                            <mo>)</mo>
+                        </mrow>
+                        <mrow>
+                            <mn>2.362</mn>
+                            <mi>x</mi>
+                        </mrow>
+                    </mfrac>
+                </math></h1>
+        </div>
+        <div>
+            <h1>Treffen sich zwei Geraden</h1>
+            <p>Sagt die eine: "Beim nächsten Mal gibst du einen aus."</p>
+        </div>
+        <div>
+            <h1>"Ich habe gehört, die Ehe des Professors soll sehr unglücklich sein!"</h1>
+            <p>"Das Wundert mich nicht. Er ist Mathematiker, und sie unberechenbar."</p>
+        </div>
+        <div>
+            <h1>Ein Mathematiklehrer steht vor der Klasse und erklärt:</h1>
+            <p>"Es gibt keine größere und keine kleinere Hälfte,... aber warum erzähl ich euch das überhaupt, die größere Hälfte von euch versteht das ja doch nicht."</p>
+        </div>
+        <div>
+            <h1>Frau Meier will ihrer Nachbarin zeigen, wie toll ihr Sohn schon rechnen kann:</h1>
+            <p>Meyer: "Fritz, was ist drei mal vier?"</p>
+            <p>Fritz: "Zehn?"</p>
+            <p>Meyer: "Sehen Sie, nur um eins verrechnet!"</p>
+        </div>
+        <div>
+            <h1>110% aller Prozentangaben sind flasch ... und 74,2855% aller Statistiken spiegeln eine Genauigkeit vor, die in der Realität nicht gerechtfertigt ist.</h1>
+        </div>
+        <div>
+            <h1>Wenn ein Mathematiker ein Fantasybuch schreibt, sind die Seitenzahlen dann imaginär?</h1>
+        </div>
+        <div>
+            <h1>Und wenn sie nicht mit Null multipliziert wurden, dann leben sie noch heute ...</h1>
+        </div>
+        <div>
+            <h1>Lehrer: "Der Briefträger läuft 12 km/h und der Dackel 16 km/h, die Entfernung beträgt 50m. Wann überholt der Dackel den Briefträger? Lösen sie das Problem zeichnerisch."</h1>
+            <p>Schüler: "Ich kann aber keinen Dackel zeichnen"</p>
+        </div>
+        <div>
+            <h1>Lehrer: "Jeder zweite Schüler kann keine Bruchrechnung!"</h1>
+            <h1>Schüler: "Ach, ich glaube, es sind noch viel mehr. Jeder dritte oder sogar jeder vierte."</h1>
+        </div>
+        <div>
+            <h1>Was ist der Lieblingsfilm eines jeden Mathematikers?</h1>
+            <p>Das Schweigen der Lemma</p>
+        </div>
+        <div>
+            <h1>
+                <math>
+                    <mi>&epsilon;</mi>
+                    <mo>&lt;</mo>
+                    <mn>0</mn>
+                </math>
+            </h1>
+        </div>
+        <div>
+            <h1>Ein Statistiker kann seinen Kopf in den Backofen und seine Füße in Eiswasser stecken, und er wird sagen:</h1>
+            <p>"Im Durchschnitt geht es mir gut."</p>
+        </div>
+        <div>
+            <h1>Was unterscheidet einen extrovertierten Mathematiker von einem introvertierten Mathematiker?</h1>
+            <p>Der extrovertierte Mathematiker schaut beim Sprechen auf <b>deine</b> Schuhe!</p>
+        </div>
+        <div>
+            <h1>"Ich werfe das Geldstück jetzt hoch. Bei Kopf gewinne ich, bei Zahl verlierst du!"</h1>
+        </div>
+        <div>
+            <h1>Was ist eine nicht zu bewältigende Hausaufgabe in Salzsäure?</h1>
+            <p>Ein gelöstes Problem</p>
+        </div>
+        <div>
+            <h1>Heisenberg fährt auf der Autobahn und wird von der Polizei angehalten: "Herr Heisenberg, wissen Sie, wie schnell Sie gefahren sind?"</h1>
+            <p>"Nein", antwortet Heisenberg, "aber ich weiß, wo ich jetzt bin!"</p>
+        </div>
+    </body>
+</html>

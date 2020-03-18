@@ -1,0 +1,39 @@
+html{
+    min-width: 0;
+}
+body > *{
+    display: none;
+}
+body:before{
+    display: block;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0 5%;
+    color: #fff;
+    background-color: #D32F2F;
+    font-size: 0.9em;
+    text-align: center;
+    font-size: 3em;
+    content: "Oops, seems you have broken something! \A \00A0 \A Maybe you have deletet some parts of the Internet, maybe you are using an ancient browser from the last century or maybe you are being hacked?";
+}
+body:after{
+    display: block;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0 5%;
+    color: #fff;
+    background-color: #D32F2F;
+    font-size: 0.9em;
+    text-align: center;
+    font-size: 3em;
+    content: "Maybe you just have disabled JavaScript. Try activating JavaScript. If it did not solve your problem you are allowed to cry.";
+}
+
+@media (max-width: 500px){
+    body:before{
+        font-size: 2em;
+    }
+    body:after{
+        font-size: 2em;
+    }
+}

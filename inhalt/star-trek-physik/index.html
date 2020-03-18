@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Star-Trek Physik</title>
+        <meta charset="utf-8">
+        <style>
+            html{
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+            body{
+                padding: 0;
+                margin: 0;
+                border: none;
+                font-family: sans-serif;
+            }
+            div{
+                min-height: 100vh;
+                text-align: justify;
+                font-size: 1.2rem;
+                line-height: 1.7rem;
+                padding: 0 5%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            div:first-child p,
+            div:first-child a{
+                color: #666;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+            }
+            div:nth-child(2) ul{
+                line-height: 2rem;
+                font-size: 1.5rem;
+            }
+            div:nth-child(2) li{
+                cursor: pointer;
+            }
+            div:nth-child(2) li:hover{
+                color: #06406c;
+            }
+            div:last-child ul{
+                line-height: 2rem;
+                font-size: 1.5rem;
+            }
+            div:last-child li{
+                cursor: pointer;
+            }
+            div:last-child li:hover{
+                color: #1B5E20;
+            }
+            div:nth-child(8n+1){
+                background-color: #fff;
+                color: #000;
+            }
+            div:nth-child(8n+1) h1{
+                color: #000;
+            }
+            div:nth-child(8n+2){
+                background-color: #348fd4;
+                color: #fff;
+            }
+            div:nth-child(8n+2) h1{
+                color: #06406c;
+            }
+            div:nth-child(8n+3){
+                background-color: #06406c;
+                color: #fff;
+            }
+            div:nth-child(8n+3) h1{
+                color: #fff;
+            }
+            div:nth-child(8n+4){
+                background-color: #F2F2F2;
+                color: #000;
+            }
+            div:nth-child(8n+4) h1{
+                color: #666;
+            }
+            div:nth-child(8n+5){
+                background-color: #ffc19f;
+                color: #000;
+            }
+            div:nth-child(8n+5) h1{
+                color: #cc4037;
+            }
+            div:nth-child(8n+6){
+                background-color: #cc4037;
+                color: #4c0d09;
+            }
+            div:nth-child(8n+6) h1{
+                color: #4c0d09;
+            }
+            div:nth-child(8n+7){
+                background-color: #fff8c9;
+                color: #615400;
+            }
+            div:nth-child(8n+7) h1{
+                color: #2d2700;
+            }
+            div:nth-child(8n+8){
+                background-color: #C8E6C9;
+                color: #558B2F;
+            }
+            div:nth-child(8n+8) h1{
+                color: #1B5E20;
+            }
+            header{
+                font-size: 6rem;
+                line-height: 12rem;
+                text-transform: uppercase;
+                font-family: "Comic Sans MS",cursive;
+                text-align: center;
+            }
+            h1{
+                font-family: cursive;
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+            }
+            ul{
+                list-style-type: square;
+                list-style-type: "→ ";
+                display: block;
+            }
+            a{
+                text-decoration: none;
+                text-decoration-line: none;
+                color: inherit;
+            }
+            .dialogue{
+                padding-left: 5vw;
+            }
+            math{
+                font-family: monospace;
+                display: inline;
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }
+            math.newline{
+                margin-left: 5vw;
+                line-height: 2.5rem;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                var content = document.querySelector("body").children[1].children[1].children;
+                for(var i = 0; i < content.length; i++){
+                    content[i].addEventListener("click", ClicKHandler(i));
+                }
+            });
+
+            function callback(k) {
+                document.querySelector("body").children[k + 1].scrollIntoView(true);
+            }
+
+            function ClicKHandler(i) {
+                return function () { callback(i) };
+            }
+
+            window.addEventListener("load", function(){
+                if(!(typeof InstallTrigger !== 'undefined')){
+                    alert("Sie verewenden einen Browser, dessen Entwicklung noch nicht fortgeschritten genug ist, um die hier verwendeten mathematischen Formeln korrekt darzurtellen. Bitte steigen Sie auf einen anderen Browser um, der dies unterstützt. Der einzige getestete Browser, bei dem keine Darstellungsprobleme auftraten, war Mozilla Firefox");
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div class="Title">
+            <header>Star Trek - Physik</header>
+            <p>GFS von <a href="mailto:michael.hohenstein@gmx.de" target="_blank">Michael Hohenstein</a></p>
+        </div>
+        <div class="ContentReference">
+            <h1>Inhalt</h1>
+            <ul>
+                <li>Inhaltsverzeichnis</li>
+                <li>Star Trek - Eine Serie</li>
+                <li>Wie viel wiegt die Enterprise?</li>
+                <li>Wie funktionieren Raketenschuhe?</li>
+                <li>Wie schnell kann man bremsen?</li>
+                <li>Wie funktioniert Beamen?</li>
+                <li>Quellen</li>
+            </ul>
+        </div>
+        <div>
+            <h1>Star Trek - eine Serie</h1>
+            <p>Seit über 50 Jahren dringt die Science Fiction Serie Star Trek in die unbekannten Weiten des Weltalls vor, die nie ein Mensch zuvor gesehen hat. Aktuell umfasst die Serie stolze 726 Folgen mit ungefähr 45 Minuten Spieldauer und 13 Filmen mit je über 2 Stunden Spieldauer. Man wäre also in der Lage, über 24 Tage lang ununterbrochen Star Trek zu schauen, wenn man sich alle Filme und Serien nacheinander anschauen möchte.</p>
+            <p>Angefangen hat alles mit Gene Roddenberry, der in den 1960er Jahren mühevoll versuchte, seine erdachte Fernsehserie <i>Raumschiff Enterprise</i> ins Fernsehen zu bringen. Obwohl zur selben Zeit das Apollo-Programm der Nasa gestartet wurde und der Weltraum zunehmend interessanter für die Bevölkerung wurde, wurde seine Idee von vielen Fernsehsendern abgelehnt. Im Jahr 1966 schaffte er es endlich, den Fernsehsender NBC dazu zu bringen, seine Serie zu produzieren. Insgesamt umfasst die erste Staffel 29 Episoden, die ab dem 8. September 1966 ausgestrahlt wurden.</p>
+            <p>Die Serie handelte von den Abenteuern des Raumschiffs Enterprise der Sternenflotte, das im Jahr 2265 bis ins Jahr 2269 in die unendlichen Weiten des Weltalls aufgebrochen ist um fremde Welten zu entdecken und mit ihnen Kontakt aufzunehmen. An Bord befinden sich unter den insgesamt 400 Crewmitgliedern der Captain Kirk, sein erster Offizier und Wissenschaftsoffizier Mr. Spok und der Schiffsarzt Dr. Leonard McCoy.</p>
+            <p>So populär die Serie heute auch sein mag, damals drohte nach der ersten Staffel schon fast eine Absetzung, weil die Einschaltquoten einfach zu gering waren. Mit der Zeit hat sich aber eine kleine Fangemeinde gebildet, die mit ihren Leserbriefen den Fernsehsender doch noch überreden konnte, bis 1969 eine zweite und dritte Staffel zu produzieren. Inhaltlich waren diese eine Fortsetzung der ersten Staffel. Die ersten 3 Staffeln werden heutzutage als <i>The Original Series</i> bezeichnet. Als im Jahr 1669 die Einschaltquoten weiter herunter gingen, wurde die Serie aufgegeben und nicht mehr weiter im Fernsehen ausgestrahlt. Viele der kleinen Privatsender nutzten die Gelegenheit und kauften sich günstig die Rechte an der Serie. So kam die Serie im Jahr 1972 auch ins deutsche ZDF.</p>
+            <p>Durch die Mondlandung im Jahr 1969, die kurz nach der Absetzung der Serie im Fernsehen stattfand, wurde der Weltraum in den 1970er Jahren zum Hype, weshalb zwischen 1973 und 1974 die Zeichentrickserie <i>die Enterprise</i> produziert wurde, die das Konzept aus <i>The original Series</i> fortsetze. Die Zeichentrickserie wurde später jedoch als <i>Fehler</i> bezeichnet und zählt heute nicht mehr zu den restlichen Star Trek Serien dazu.</p>
+            <p>1979 wurde der erste <i>Star Trek Film</i> mit dem kreativen Titel “Star Trek - Der Film” in den Kinos ausgestrahlt, der aber keinen großen Erfolg lieferte. Es folgten 5 weitere Filme von 1981 bis 1991, die bei den Zuschauern deutlich besser ankamen und finanziell sehr erfolgreich waren. Der 6. Film war auch der letzte, bei dem die Crew aus <i>The Original Series</i> mitspielte. Der Wunsch nach einer neuen Serie kam auf, aber diesmal mit neuen Charakteren und so entstand <i>Star Trek - The Next Generation</i>. Im Vergleich zu <i>The Original Series</i> spielt <i>The Next Generation</i> im 24. Jahrhundert und somit ein Jahrhundert später. Der Captain des Schiffes ist Jean-Luc Picard, der erste Offizier William Riker und der Android Data. Bis 1994 wurden über 7 Staffeln von <i>The Next Generation</i> produziert und es folgten die Star Trek Filme 7 bis 10, die auch als <i>das nächste Jahrhundert</i> bezeichnet werden.</p>
+            <p>Noch während der Laufzeit der zweiten Serie wurde 1993 mit der Produktion der dritten Serie <i>Deep Space Nine</i> angefangen, die ebenfalls im 24. Jhdt spielt. In dieser Serie ist Benjamin Sisko der Captain des Schiffen, das sich am Rande der Föderation in der Nähe von einem Stabilen Wurmloch. Auch diese Serie schaffte es auf ganze 7 Staffeln, dis ihre Produktion im Jahr 1999 eingestellt wurde.</p>
+            <p>Mit der darauf folgenden Serie <i>Voyager</i> wurde die Produktion auch schon vor dem Ende der vorherigen Staffel begonnen. Die Produktion ging von 1995 bis 2001 und spielte wieder mit einer komplett neuen Crew, aber wieder im 24. Jahrhundert. Zum ersten Mal war mit Kathryn Janeway eine Frau an der Position des Captains. Eine große Neuerung für war, dass auch der Japaner Lieutenant Hikaru Sulu und der Sowjet Russe Pavel Chekov auf der Brücke der Enterprise vertreten waren. In der Serie Voyager geht es vor allem darum, dass die Enterprise von einer unbekannten Macht in einen anderen Quadranten des Universums geschleudert wurde, von wo aus es selbst mit dem besten Warp-Antrieb 70 Jahre dauern würde, die Erde zu erreichen. Die Crew gibt ihr Bestes, den schnellstmöglichen Weg zu finden und erreicht nach 7 Jahren dann doch endlich die Erde.</p>
+            <p>Nach dem Staffelfinale von <i>Voyager</i> kam im Jahr 2001 die neue Serie <i>Enterprise</i>. Bei dieser Serie wird erzählt, wie in den Jahren 2051 bis 2055 die <i>Vereinigte Föderation der Planeten</i> überhaupt erst entstanden ist. Zu Beginn der Serie wird das Raumschiff Enterprise NX-01 erstmals durch Captain Jonathan Archer in Betrieb genommen. Nach der vierten Staffel endete die Serie abrupt mit der Gründung der Föderation. Die Serie war einfach zu erfolglos, und wurde abgebrochen.</p>
+            <p>Danach kam Star Trek wieder auf die große Leinwand im Kino. 2009 kam ein neuer Film mit dem einfachen Titel <i>Star Trek</i> heraus, der mit der alten Crew von <i>The Original Series</i> weiter spielt und davon berichtet, wie Kirk, Spock und McCoy von der Akademie der Sternenflotte zu ihrem Posten auf die Enterprise kamen. Der Film war ein voller Erfolg, weshalb 2013 der weitere Film <i>Into Darkness</i> produziert wurde und 2016 der Film <i>Beyond</i> erschien, die beide aufeinande aufbauen. Außerdem wurde 2015 die Produktion der neuen Fernsehserie <i>Discovery</i> angekündigt, die 2017 ins Fernsehen kommen sollte.</p>
+        </div>
+        <div>
+            <h1>Wie viel wiegt die Enterprise?</h1>
+            <p>Die USS Enterprise ist das Schiff der Star Trek Crew, das in fast allen Folgen außer <i>Voyager</i> zum Ort des Geschehens wurde. In der Serie <i>Voyager</i> wurde an ihrer Stelle das Schiff <i>USS Voyager</i> eingesetzt. Jede Serie hat ihre eigene Enterprise, die sich technisch, vom Aussehen und von ihrer Registrierungsnummer bei der Sternenflotte zu denen in den anderen Serien unterscheidet. Die älteste Enterprise, die im Star Trek Universum vorkommt, ist die Enterprise NX-01 aus der Serie <i>Enterprise</i>. Un den anderen Serien bekam Das Schiff die Registrierungsnummern NCC-1701, NCC-1701-A bis E und NCC-1701-J. Der Präfix USS, den die Enterprise erhalten hat, steht für <i>United Space Ship</i> oder <i>United Star Ship</i>. Am Ende einer Serie geht das Schiff meistens kaputt oder wird aus dem Dienst entlassen. Obwohl das Schiff sich im Lauf der Zeit zwischen den einzelnen Serien leicht verändert hat, hat es immer seine ungefähre Form behalten, und sieht wie eine fliegende Untertasse mit den 2 riesigen Antriebsgindondeln.</p>
+            <p>In der 10 Folge “Ebenbild” der dritten Staffel Enterprise hängt die Enterprise NX-01 in einem Nebel fest, der aus einem stark magnetischen Material besteht. Von dem Material lagert sich immer mehr an der Oberfläche der Enterprise ab, bis schließlich der Antrieb versagt. Captain Jonathan Archer versucht daher, die Enterprise mit hilfe von 2 kleinen Raumfähren die Enterprise aus dem Nebel zu ziehen. Lieutenant Malcolm Reed und Ensign Travis Mayweather fliegen mit den 2 kleinen Raumfähren voraus, die mit einer Art Seil mit der Enterprise verbunden sind, um das Manöver su starten. Auf der Brücke warten außerdem Subcommander T’Pol und der Klon eines Maschinenoffiziers Sim.</p>
+            <p class="dialogue">Archer (<i>zu Sim</i>): “Wann immer Sie bereit sind!”
+                <br>Sim: “Stellen Sie den Überhitzungsquotienten ein. Wir starten mit 0,175.”
+                <br>Reed: “Verstanden.”
+                <br>Mayweather: “0,175.”
+                <br>Sim: “Beginn der Zündung auf mein Kommando - jetzt!”
+                <br>(<i>Die Antriebe der beiden kleinen Raumfähren werden gezündet</i>)
+                <br>Reed: “1 000 Kilodyne.”
+                <br>Mayweather: “Zugkraftvektor bleibt stabil.”
+                <br>(<i>Es tut sich nichts</i>)
+                <br>Archer: “Komm schon!”
+                <br>Reed: “2 000 Kilodyne. Antriebstemperatur steigt.”
+                <br>T’Pol: “Es wird null Vorwärtsbewegung angezeigt.”
+                <br>Reed: “2 500 Kilodyne! Antriebstemperatur wird kritisch.”
+                <br>T’Pol: “Wir bewegen uns immer noch nicht.”
+                <br>(<i>Es tut sich immer noch nichts. Die beiden kleinen Raumfähren kommen allerdings an den Rand ihrer Leistungsfähigkeit und drohen auseinanderzubrechen</i>)
+                <br>Archer: “Komm schon!”
+                <br>Sim: “Erhöhen sie den Überhitzungsquotienten um 30 Prozent.”
+                <br>Reed: “Captain?”
+                <br>Archer: “Machen Sie das!”
+                <br>Reed: “Erhöhen um 30 Prozent.”
+                <br>Mayweather: “Ich habe ein Temperaturwarnlicht!”
+                <br>Reed: “Ich liege 500 Grad über dem Grenzwert!”
+                <br>T’Pol: “Ihre Systeme werden überladen.”
+                <br>Archer: “Sim?”
+                <br>Sim: “Ein paar Sekunden noch!”
+                <br>T’Pol: “Ein paar Sekunden überleben sie nicht.”
+                <br>Archer: “Tut mir leid, Sim! Archer an Raumfähren …”
+                <br>(<i>In diesem Moment bewegt sich die große Enterprise und wird von den beiden raumfähren gezogen</i>)
+                <br>T’Pol: “Wir bewegen uns. 0,62 Kilometer pro Stunde.”
+                <br>(<i>Es vergehen 10 Sekunden</i>)
+                <br>Mayweather: “12 Kilometer pro Stunde - Geschwindigkeit erhöht sich.”
+                <br>Archer: “Wie lange brauchen wir?”
+                <br>T’Pol: “Wir werden das Feld bei dieser Geschwindigkeit in 6,1 Stunden verlassen.”
+                <br>Archer: “Das reicht uns vollkommen! Archer an Raumfähre 1 und 2: Kommen Sie rein.”
+                <br>Archer (<i>zu Sim</i>): “Gut gemacht!”
+                <br>Sim: “Danke, Captain.”</p>
+            <p>Aus dem Dialog können die notwendigen Angaben zur Berechnung der Masse der Enterprise entnommen werden. Nachdem die Enterprise sich in Bewegung setzt, wird sie von den Raumfähren gleichmäßig beschleunigt. Es gelten die Formeln der gleichmäßig beschleunigten Bewegung:
+                <br>
+                <math class="newline">
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                </math>
+                <br>Da die Enterprise von den Raumfähren mit einer Kraft gezogen wird, ist die Grundgleichung der Mechanik auch relevant:
+                <br>
+                <math class="newline">
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                </math>
+                <math class="newline">
+                    <mi>m</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>F</mi>
+                        <mi>a</mi>
+                    </mfrac>
+                </math>
+            </p>
+            <p>Zuallererst bestimmen wir die Masse. In dem Dialog wird erwähnt, dass die Enterprise sich mit einer Geschwindigkeit von
+                <math>
+                    <msub>
+                        <mi>v</mi>
+                        <mn>0</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mn>0,62</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math> in Bewegung setzt und nach
+                <math>
+                    <mi>&Delta;t</mi>
+                    <mo>=</mo>
+                    <mn>10s</mn>
+                </math> eine Geschwindigkeit von
+                <math>
+                    <msub>
+                        <mi>v</mi>
+                        <mn>1</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mn>12</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math> erreicht. Die Geschwindigkeitsdifferenz beträgt
+                <math>
+                    <mi>&Delta;v</mi>
+                    <mo>=</mo>
+                    <msub>
+                        <mi>v</mi>
+                        <mn>1</mn>
+                    </msub>
+                    <mo>-</mo>
+                    <msub>
+                        <mi>v</mi>
+                        <mn>0</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mn>12</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                    <mo>-</mo>
+                    <mn>0,62</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>11,38</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>3,16</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <mn>s</mn>
+                    </mfrac>
+                </math>. Somit erfährt die Enterprise eine Beschleunigung von
+                <math>
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>3,16</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                        </mrow>
+                        <mn>10s</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>0,316</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math>.</p>
+            <p>Nun fehlt nur noch die Kraft, die auf die Enterprise auswirkt. Laut Dialog beträgt diese
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mn>2500 Kilodyne</mn>
+                </math>. Interessanter weise ist <i>Dyne</i> eine Alte Einheit für Kraft. Die heutige offizielle Einheit <i>Newton</i> aus dem Si-System setzt sich aus den Einheiten <i>Meter</i>, <i>Kilogramm</i> und <i>Sekunde</i> zusammen. Es gilt:
+                <math>
+                    <mn>1 N</mn>
+                    <mo>=</mo>
+                    <mn>1 Kg</mn>
+                    <mo>&middot;</mo>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math>. Die Einheit <i>Dyne</i> kommt aus dem früher gebräuchlichen cgs-System, welches stattdessen die Einheiten <i>Zentimeter</i>, <i>Gramm</i> und <i>Sekunde</i> verwendete. Das cgs-System ist seit 1978 international nicht mehr in Gebrauch, weil es von dem si-System abgelöst wurde. Für die Umrechnung von <i>1 N</i> in <i>1 Dyne</i> gilt:
+                <br>
+                <math class="newline">
+                    <mn>1 N</mn>
+                    <mo>=</mo>
+                    <mn>1 Kg</mn>
+                    <mo>&middot;</mo>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>1000 g</mn>
+                    <mo>&middot;</mo>
+                    <mn>100</mn>
+                    <mfrac>
+                        <mn>cm</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>100000 Dyne</mn>
+                </math>
+                <br>
+                <math class="newline">
+                    <mn>1 N</mn>
+                    <mo>=</mo>
+                    <mn>100000 Dyne</mn>
+                </math>
+                <br>Die 2500 Kilodyne entsprechen also nur
+                <math>
+                    <mn>2500</mn>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>3</mn>
+                    </msup>
+                    <mo>&middot;</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>100000</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>25 N</mn>
+                </math> ! Da es sich um 2 Raumfähren handelt, gilt für die auf die Enterprise einwirkende Kraft
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mn>2</mn>
+                    <mo>&middot;</mo>
+                    <mn>25 N</mn>
+                    <mo>=</mo>
+                    <mn>50 N</mn>
+                </math> ! Die Enterprise wird mit einer Kraft von <b>NUR</b> 50 Newton gezogen!
+                <br>Setzen wir nun die berechneten Größen in die Gleichung ein, erhalten wir die Masse der Enterprise:
+                <br>
+                <math class="newline">
+                    <mi>m</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>F</mi>
+                        <mi>A</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>50 N</mn>
+                        <mrow>
+                            <mn>0,316</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <msup>
+                                    <mn>s</mn>
+                                    <mn>2</mn>
+                                </msup>
+                            </mfrac>
+                        </mrow>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>158 Kg</mn>
+                </math> !</p>
+            <p>Die Enterprise wiegt nur 158 Kilogramm! Mitsamt ihrer Besatzung! Wir haben somit die Träge Masse der Enterprise berechnet. Dieser Wert ist überraschend klein und ein Hinweis darauf, dass die Enterprise wirklich sogenannte <i>Trägheitsdämpfer</i> an Board hat, die in verschiedenen Serien mehrmals erwähnt werden. Trägheitsdämpfer sind mit dem heutigen Wissensstand der Physik nicht zu erklären, da die Gesetze der Newton-Axonomie auch im Jahr 2153 noch gelten sollen.</p>
+        </div>
+        <div>
+            <h1>Wie funktionieren Raketenschuhe?</h1>
+            <p>Der fünfte Star Trek Film Am Rande des Universums beginnt damit, dass Kirk, Spock und McCoy im Yosemite Nationalpark auf der Erde Urlaub machen. Captain Kirk geht dabei seinem Hobby nach und klettert ungesichert einen Berg hinauf. Als er sich ungefähr auf der Höhe von 300 Metern befindet, kommt Spok auf Raketenstiefeln auf ihn zugeflogen. Es entwickelt sich folgender Dialog:</p>
+            <p class="dialogue">Spok: “Guten Tag, Captain.”
+                <br>Kirk: “Spock! Was hat Sie denn in diese Ecke verschlagen?"
+                <br>Spock: “Ich habe ihre Fortschritte beobachtet.”
+                <br>Kirk: “Ich fühle mich geschmeichelt. Zwölfhundert Naturwunder in Yosemite, und Sie wählen mich.”
+                <br>Spok: “Leider muss ich ihnen mitteilen, dass der Rekord im Freiklettern an dieser Wand heute keinesfalls in Gefahr ist.”
+                <br>Kirk: “Ich will keinen Rekord brechen. Ich klettere, weil es mir Spaß macht. Ganz zu schweigen vom wichtigsten Grund, auf einen Berg zu steigen.”
+                <br>Spock: “Und der wäre?”
+                <br>Kirk: “Hm, weil er da ist!”
+                <br>Spock: “Captain, ich glaube nicht, dass Sie sich über den Risikofaktor im Klaren sind.”
+                <br>Kirk: “Und ob ich das bin. Ich würde sagen, es ist ungefähr 300 Meter hoch. Hören Sie mal. Ich will hier in Ruhe klettern. Warum fallen Sie nicht Dr. McCoy auf den Wecker?”
+                <br>Spok: “Ich befürchte, Dr. McCoy ist nicht gerade in bester Stimmung.”
+                <br><i>(Dr. McCoy verfolgt alles vom Boden aus mit einer Fernglas und spricht mit sich selbst)</i>
+                <br>McCoy: “Wie kann der Kerl nur so verdammt unvernünftig sein - mit seinem Leben zu spielen!”
+                <br>Spock: “Konzentration ist das Wichtigste. Sie müssen eins werden mit dem Felsen!”
+                <br>Kirk: “Spock, ihre Besorgnis rührt mich, aber wenn Sie nicht bald aufhören, mich abzulenken … aahhhhhh!”
+                <br><i>(unkonzentriert rutscht Kirk daraufhin ab und fällt in die Tiefe. Spock erkennt die Lage und saust mit seine Raketenstiefeln kopfüber hinterher. Kurz vor dem Boden hat Spock den frei fallenden Kirk eingeholt und packt ein Bein des Captains. Dabei bremst er ihn ungefähr auf der Länge seines Körpers vollständig ab, sodass Kirk kopfüber an Spocks Arm hängt.)</i>
+                <br>Spock: “Vielleicht ist, ‘Weil er da ist!’ doch kein ausreichender Grund, auf einem Berg herumzuklettern!”
+                <br>Kirk: “Ich bin kaum in der Lage zu widersprechen … “</p>
+            <p>Schauen wir uns Spock seine Raketenschuhe mal genauer an. Raketen können fliegen, indem sie Treibstoff nach unten ausstoßen, denn nach dem 3. Newton-Axiom <i>actio=reactio</i>. Indem eine Rakete ihren Treibstoff mit einer Kraft nach unten ausstöße, drückt sie sich wiederum mit derselben Kraft nach oben. An den Schuhen von Spok ist zu erkennen, dass diese auch etwas treibstoff-ähnliches nach unten ausstoßen. Nun ist das aber so, dass Raketen sehr viel Treibstoff verbrauchen. Die Schuhe müssen nämlich in der Lage sein, die Gewichtskraft von Spok aufzubringen, damit er auf der Stelle schweben kann. Das mit dem Treibstoff ist bei allen Raketen ein Problem. Bei großen Raketen ist natürlich reichlich Platz vorhanden, aber man muss dennoch bedenken, dass der Treibstoff ein Eigengewicht hat, für welches wiederum mehr Treibstoff verwendet werden muss.</p>
+            <p>In dem Film sieht man Spock ungefähr 20 Sekunden lang fliegen. Das Gewicht des Vulkaniers kann auf ungefähr 80 Kilogramm geschätzt werden. Um zu berechnen, wie viel Materie wie schnell ausgestoßen werden muss, müssen wir die Gleichung für das 2. Newton-Axiom ein wenig umstellen. Wir haben die Kraft für die gilt:
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                </math>. Hierbei haben wir eine Masse, die wir mit einer Kraft F beschleunigen. Bei einer Rakete haben wir zum einen die Komponente <i>Masse pro Sekunde</i> und zum anderen die Geschwindigkeit, mit der diese ausgestoßen wird. Das Produkt beider Komponenten ergibt wieder eine Kraft. Es gilt:
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;m</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>v</mi>
+                </math>. Die Kraft, die die Rakete aufbringt, entspricht der Gewichtskraft von Spock und der des Treibstoffs, damit Spock in der Luft schweben kann. Nehmen wir an dieser Stelle mal einen Stoff, den eine Rakete ausstoßen könnte: Wasser. Normaler Raketentreibstoff ist heutzutage leichter als Wasser, aber im Jahr 2287 gibt es sicherlich eine Möglichkeit, Wasser als Raketentreibstoff zu nutzen. Wenn wir festlegen, dass wir von dem Wasser ein Kilogramm pro Sekunde ausstoßen werden (ob flüssig, als Sprühnebel oder einen Kilo Wasserdampf pro Sekunde, ist egal. Es geht einfach nur darum, dass die Schuhe das Können), dann gilt:
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mfrac>
+                        <mn>Kg</mn>
+                        <mn>s</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>v</mi>
+                </math>. Noch einmal zurück zu der Kraft, die die Rakete aufwenden muss: die Kraft berechnet sich auch der Summe der Gewichtskraft von Spock und der Gewichtskraft des Treibstoffes; es gilt:
+                <br>
+                <math class="newline">
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <msub>
+                        <mi>F</mi>
+                        <mn>G-Spock</mn>
+                    </msub>
+                    <mo>+</mo>
+                    <msub>
+                        <mi>F</mi>
+                        <mn>G-Treibstoff</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mi>g</mi>
+                    <mo>&middot;</mo>
+                    <mo>(</mo>
+                    <msub>
+                        <mi>m</mi>
+                        <mn>Spock</mn>
+                    </msub>
+                    <mo>+</mo>
+                    <msub>
+                        <mi>m</mi>
+                        <mn>Treibstoff</mn>
+                    </msub>
+                    <mo>)</mo>
+                </math>
+                <br>Welche Masse an Treibstoff brauchen wir? Nun, da wir festgelegt haben, dass die Schuhe einen Kilogramm Wasser pro Sekunde ausstoßen und Spock 20 Sekunden lang fliegt, braucht er 20 Kilogramm Wasser. Bei der Dichte von Wasser, welche
+                <math>
+                    <mi>&rho;</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mfrac>
+                        <mn>g</mn>
+                        <msup>
+                            <mn>cm</mn>
+                            <mn>3</mn>
+                        </msup>
+                    </mfrac>
+                </math> beträgt, wären dies 20 Liter, die Spock bei sich tragen müsste. Dazu ist in den Schuhen kein Platz und einen Rucksack trägt er auch nicht mit sich. Um die Gesamtkraft der Raketenstiefel zu bestimmen, wird näherungsweise mit einem Ortsfaktor von
+                <math>
+                    <mi>g</mi>
+                    <mo>=</mo>
+                    <mn>10</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math> gerechnet, um eine krumme Zahl als Ergebnis zu vermeiden. Die Kraft beträgt:
+                <br>
+                <math class="newline">
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mn>10</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mo>(</mo>
+                    <mn>80 Kg</mn>
+                    <mo>+</mo>
+                    <mn>20 Kg</mn>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mn>10</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mn>100 Kg</mn>
+                    <mo>=</mo>
+                    <mn>1000N</mn>
+                </math>
+                <br>Die geschwindigkeit, mit der das Wasser ausgestoßen wird, beträgt:
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>F</mi>
+                        <mover>
+                            <mi>m</mi>
+                            <mn>°</mn>
+                        </mover>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1000 N</mn>
+                        <mrow>
+                            <mn>1</mn>
+                            <mfrac>
+                                <mn>Kg</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                        </mrow>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>1000</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <mn>s</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>3600</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math>
+            </p>
+            <p>Kommen wir noch einmal zu der Aussage zurück, dass es sich dabei um 20 Liter Wasser handelt, die ausgestoßen werden. In der Berechnung wurde nur der Treibstoff für die 20 Sekunden des Dialogs verwendet. Nicht bedacht wurde, dass Spock noch Treibstoff benötigt, um auf die Höhe von 300 Metern zu gelangen, bzw. Kirk nach dem erfolgreichen Abbremsen sicher auf den Boden zu befördern. Zwar nimmt der Treibstoff mit der Zeit ab, wodurch die Rakete leichter wird und weniger ausgestoßen werden muss, aber Spock bräuchte weitaus mehr als 20 Liter Wasser, damit die Filmszene realistisch erscheint.</p>
+            <p>Es wäre möglich, einen anderen Stoff zu verwenden, der schwerer ist, damit weniger davon ausgestoßen werden muss. Würden wir eine Flüssigkeit verwenden, die doppelt so schwer ist, müssten wir für dieselbe Kraft nur halb soviel ausstoßen und deshalb auch nur halb so viel mitnehmen. Für eine weitere Berechnung können wir ein ganz schweres, noch flüssiges Material verwenden, beispielsweise Quecksilber. Quecksilber kann ausgestoßen werden, weil es als einziges Metall flüssig ist, und ist mit seiner Dichte von
+                <math>
+                    <mi>&rho;</mi>
+                    <mo>=</mo>
+                    <mn>13,6</mn>
+                    <mfrac>
+                        <mn>g</mn>
+                        <msup>
+                            <mn>cm</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math> ziemlich schwer. Die benötigte Menge an Quecksilber würde bei
+                <math>
+                    <mi>V</mi>
+                    <mo>=</mo>
+                    <mn>20 L</mn>
+                    <mo>&middot;</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>1</mn>
+                            <mfrac>
+                                <mn>g</mn>
+                                <msup>
+                                    <mn>cm</mn>
+                                    <mn>3</mn>
+                                </msup>
+                            </mfrac>
+                        </mrow>
+                        <mrow>
+                            <mn>13,6</mn>
+                            <mfrac>
+                                <mn>g</mn>
+                                <msup>
+                                    <mn>cm</mn>
+                                    <mn>3</mn>
+                                </msup>
+                            </mfrac>
+                        </mrow>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>1,6 L</mn>
+                </math> liegen. Diese hätten zwar in den Schuhen Platz, aber es fehlt immer noch der Platz für eine Vorrichtung, die das Quecksilber, bzw. auch das Wasser auf eine Geschwindigkeit von
+                <math>
+                    <mn>3600</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math> beschleunigt. Die Raketenschuhe von Spock wären theoretisch möglich. Praktisch wäre es aber nicht möglich, diese Schuhe mit dem heutigen stand der Technik umzusetzen, aber bis zum Jahr 2287 gibt es noch genug Zeit. Spock könnte einen anderen Treibstoff verwenden, der weitaus schwerer ist, oder den Treibstoff mit einer bisher unbekannten Technik um ein vielfaches schneller ausstoßen.</p>
+            <p>Im Jahr 1961 wurde übrigens wirklich ein Raketenrucksack von Wendell F. Moore im Auftrag der Firma Bell Aerosystems entwickelt, mit dem ein Mensch etwa 30 Sekunden lang schweben konnte. Das dazu als Treibstoff benötigte Wasserstoffperoxid befand sich in dem Rucksack, wog ungefähr 30 Kilogramm und wurde mit einer Geschwindigkeit von ungefähr
+                <math>
+                    <mn>2000</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math> nach unten ausgestoßen. Der Rucksack wurde 1965 bei dem James Bond Film Feuerball und 1984 bei der Eröffnung der olympischen Spiele in Los Angeles eingesetzt.</p>
+        </div>
+        <div>
+            <h1>Wie schnell kann man bremsen?</h1>
+            <p>An der vorher analysierten Szene gibt es noch ein weitere Besonderheit: als Kirk fällt und Spock ihm zur Hilfe eilt, bremst er den Captain im Bruchteil einer Sekunde auf einer Strecke von seiner Körperlänge und somit circa 2 Metern vollständig ab. Dabei müssen enorm hohe Kräfte auf das Bein des Captains wirken, an dem er von Spock gehalten wird. Diese Kraft lässt sich wiederum mit dem 2. Newton-Axiom berechnen:
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                </math>. Als Masse wird hier die Masse des Captains verwendet. Da Kirk im 5. Film schon etwas außer Form ist, lässt diese sich auch ungefähr 100 Kilogramm schätzen. Es fehlt nur noch die Beschleunigung, die Kirk beim Bremsvorgang widerfährt. Diese lässt sich wiederum auch berechnen, da er während dem Bremsvorgang von seiner Fallgeschwindigkeit auf
+                <math>
+                    <mn>0</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math> beschleunigt wird. In diesem Fall handelt es sich um eine Beschleunigung mit einem negativen Vorzeichen, da seine Geschwindigkeit abnimmt.</p>
+            <p>Nun geht es darum, die Geschwindigkeit zu bestimmen, mit der Kirk fällt, kurz bevor er von Spock abgebremst wird. Würde er ungebremst aus seiner Fallhöhe von 300 Metern zu Boden Fallen, kann man seine Aufprallgeschwindigkeit auf der Erde berechnen. Es gilt:
+                <br>
+                <math class="newline">
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mi>a</mi>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>t</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <mo>&middot;</mo>
+                    <mi>t</mi>
+                </math>
+                <br>Mit der ersten Gleichung können wir nach der Fallzeit umformen:
+                <math>
+                    <mi>t</mi>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>&middot;</mo>
+                                <mi>s</mi>
+                            </mrow>
+                            <mi>a</mi>
+                        </mfrac>
+                    </msqrt>
+                </math>. Setzen wir diese in die Gleichung für das Zeit-Geschwindigkeits-Gesetz ein, erhalten wir die Auftreffgeschwindigkeit:
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <mo>&middot;</mo>
+                    <msqrt>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>&middot;</mo>
+                                <mi>s</mi>
+                            </mrow>
+                            <mi>a</mi>
+                        </mfrac>
+                    </msqrt>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>&middot;</mo>
+                                <mi>s</mi>
+                            </mrow>
+                            <mi>a</mi>
+                        </mfrac>
+                        <mo>&middot;</mo>
+                        <msup>
+                            <mi>a</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </msqrt>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mn>2</mn>
+                        <mo>&middot;</mo>
+                        <mi>s</mi>
+                        <mo>&middot;</mo>
+                        <mi>a</mi>
+                    </msqrt>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mn>2</mn>
+                        <mo>&middot;</mo>
+                        <mn>300 m</mn>
+                        <mo>&middot;</mo>
+                        <mn>9,81</mn>
+                        <mfrac>
+                            <mn>m</mn>
+                            <msup>
+                                <mn>s</mn>
+                                <mn>2</mn>
+                            </msup>
+                        </mfrac>
+                    </msqrt>
+                    <mo>=</mo>
+                    <mn>76,72</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <mn>s</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>276</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math>
+                <br>Kirk fällt aber nicht ungebremst auf den Erdboden. Da er sich in der Erdatmosphäre befindet, wird er durch den Luftwiderstand abgebremst und hat somit eine viel geringere Geschwindigkeit, als Spock ihn vor dem Aufprall auf die Erdoberfläche bewahrt,</p>
+            <p>Ein Körper, der sich in einem flüssigen oder gasförmigen Medium bewegt, widerfährt einen Strömungswiderstand und wird durch diesen abgebremst. Dies kommt dadurch zustande, dass die <i>Teilchen</i>, die sich vor dem Körper befinden, für eine Bewegung des Körpers erst einmal weggeschoben werden müssen. Die Kraft, die vom Strömungswiderstand auf den Körper einwirkt, ist entgegen seine Geschwindigkeit gerichtet. Der Luftwiderstand berechnet sich mit folgender Formel:
+                <br>
+                <math class="newline">
+                    <msub>
+                        <mi>F</mi>
+                        <mn>Lr</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>A</mi>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>c</mi>
+                        <mi>w</mi>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>&rho;</mi>
+                        <mn>Luft</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>v</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+            </p>
+            <ul>
+                <li>Je größer die Fläche, auf die der Strömungswiderstand auswirkt, desto größer ist auch die Kraft, die der Luftwiderstand ausübt:
+                    <math>
+                        <msub>
+                            <mi>F</mi>
+                            <mn>Lr</mn>
+                        </msub>
+                        <mo>&sim;</mo>
+                        <mi>A</mi>
+                    </math>. Kirk möchte natürlich so langsam wie möglich fallen und legt sich möglichst flach hin, damit er mit der größtmöglichen Fläche auch den größtmöglichen Luftwiderstand hat. In diesem Fall kann ein Wert von
+                    <math>
+                        <mi>A</mi>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <msup>
+                            <mn>m</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </math> verwendet werden.</li>
+                <li>Je größer die Dichte des Mediums ist, desto größer ist auch der Strömungswiderstand:
+                    <math>
+                        <msub>
+                            <mi>F</mi>
+                            <mn>Lr</mn>
+                        </msub>
+                        <mo>&sim;</mo>
+                        <msub>
+                            <mi>&rho;</mi>
+                            <mn>Luft</mn>
+                        </msub>
+                    </math>. Die Dichte der Luft nimmt zwar mit der Höhe ab und mit der Temperatur zu, aber während dem Fall von Kirk hat sich die Temperatur kaum verändert und er ist auch nicht tief genug gefallen, dass eine Dichteänderung berücksichtigt werden müsste. Für die Dichte der Luft wird ein Wert von
+                    <math>
+                        <msub>
+                            <mi>&rho;</mi>
+                            <mn>Luft</mn>
+                        </msub>
+                        <mo>=</mo>
+                        <mn>1,2</mn>
+                        <mfrac>
+                            <mn>Kg</mn>
+                            <msup>
+                                <mn>cm</mn>
+                                <mn>3</mn>
+                            </msup>
+                        </mfrac>
+                    </math> verwendet, der zu den meteorologischen Bedingungen im Yosemite Nationalpark passt.</li>
+                <li>Die Geschwindigkeitszunahme führt zu einer Exponentiellen Zunahme des Strömungswiderstandes. Bei doppelter Geschwindigkeit ist dieser 4 mal so hoch, bei dreifacher Geschwindigkeit 9 mal.
+                    <math>
+                        <msub>
+                            <mi>F</mi>
+                            <mn>Lr</mn>
+                        </msub>
+                        <mo>&sim;</mo>
+                        <msup>
+                            <mi>v</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </math>
+                </li>
+                <li>Der Strömungswiderstand ist von einem weiteren essentiellen Faktor abhängig: Dem
+                    <math>
+                        <msub>
+                            <mi>c</mi>
+                            <mn>w</mn>
+                        </msub>
+                    </math> Wert. Dieser <i>Luftwiderstandsbeiwert</i> ist für jedes fallende Objekt anders. Je größer der
+                    <math>
+                        <msub>
+                            <mi>c</mi>
+                            <mn>w</mn>
+                        </msub>
+                    </math> Wert, desto größer der Luftwiderstand:
+                    <math>
+                        <msub>
+                            <mi>F</mi>
+                            <mn>Lr</mn>
+                        </msub>
+                        <mo>&sim;</mo>
+                        <msub>
+                            <mi>c</mi>
+                            <mn>w</mn>
+                        </msub>
+                    </math>. Kirk möchte natürlich so langsam wie möglich fallen und legt sich möglichst flach hin, damit er mit der größtmöglichen Fläche auch den größtmöglichen Luftwiderstand hat. In diesem Fall kann ein Wert von
+                    <math>
+                        <msub>
+                            <mi>c</mi>
+                            <mn>w</mn>
+                        </msub>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                    </math> verwendet werden, welcher dem eines fallenden Bretts entspricht.</li>
+            </ul>
+            <p>Die Maximalgeschwindigkeit erreicht Kirk, wenn der Luftwiderstand genau so stark wie seine Gewichtskraft ist, denn ab diesem Zeitpunkt wird er nicht mehr beschleunigt und bewegt sich gleichförmig weiter. Die Berechnung der Maximalgeschwindigkeit erfolgt durch die Gleichsetzung der Gewichtskraft, welche sich mit
+                <math>
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>g</mi>
+                </math> berechnen lässt:
+                <br>
+                <math class="newline">
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>g</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>A</mi>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>c</mi>
+                        <mn>w</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>&rho;</mi>
+                        <mn>Luft</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>v</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>Diese Gleichung muss nun nach der Geschwindigkeit umgeformt werden.
+                <br>
+                <math class="newline">
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>g</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>A</mi>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>c</mi>
+                        <mn>w</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>&rho;</mi>
+                        <mn>Luft</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>v</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>
+                <math class="newline">
+                    <mn>2</mn>
+                    <mo>&middot;</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>g</mi>
+                    <mo>=</mo>
+                    <mi>A</mi>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>c</mi>
+                        <mn>w</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msub>
+                        <mi>&rho;</mi>
+                        <mn>Luft</mn>
+                    </msub>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>v</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>
+                <math class="newline">
+                    <msup>
+                        <mi>v</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>2</mn>
+                            <mo>&middot;</mo>
+                            <mi>m</mi>
+                            <mo>&middot;</mo>
+                            <mi>g</mi>
+                        </mrow>
+                        <mrow>
+                            <mi>A</mi>
+                            <mo>&middot;</mo>
+                            <msub>
+                                <mi>c</mi>
+                                <mn>w</mn>
+                            </msub>
+                            <mo>&middot;</mo>
+                            <msub>
+                                <mi>&rho;</mi>
+                                <mn>Luft</mn>
+                            </msub>
+                        </mrow>
+                    </mfrac>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>&middot;</mo>
+                                <mi>m</mi>
+                                <mo>&middot;</mo>
+                                <mi>g</mi>
+                            </mrow>
+                            <mrow>
+                                <mi>A</mi>
+                                <mo>&middot;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mn>w</mn>
+                                </msub>
+                                <mo>&middot;</mo>
+                                <msub>
+                                    <mi>&rho;</mi>
+                                    <mn>Luft</mn>
+                                </msub>
+                            </mrow>
+                        </mfrac>
+                    </msqrt>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <msqrt>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>&middot;</mo>
+                                <mn>100 Kg</mn>
+                                <mo>&middot;</mo>
+                                <mn>9,81</mn>
+                                <mfrac>
+                                    <mn>m</mn>
+                                    <msup>
+                                        <mn>s</mn>
+                                        <mn>2</mn>
+                                    </msup>
+                                </mfrac>
+                            </mrow>
+                            <mrow>
+                                <mn>1</mn>
+                                <msup>
+                                    <mn>m</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&middot;</mo>
+                                <mn>1</mn>
+                                <mo>&middot;</mo>
+                                <mn>1,2</mn>
+                                <mfrac>
+                                    <mn>g</mn>
+                                    <msup>
+                                        <mn>cm</mn>
+                                        <mn>3</mn>
+                                    </msup>
+                                </mfrac>
+                            </mrow>
+                        </mfrac>
+                    </msqrt>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>&asymp;</mo>
+                    <mn>41</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <mn>s</mn>
+                    </mfrac>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <mn>150</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math>
+            </p>
+            <p>Kirk fällt also mit einer Geschwindigkeit von
+                <math>
+                    <mi>v</mi>
+                    <mo>=</mo>
+                    <mn>150</mn>
+                    <mfrac>
+                        <mn>Km</mn>
+                        <mn>h</mn>
+                    </mfrac>
+                </math>, bevor er von Spock abgebremst wird. Um seine Bremsbeschleunigung zu bestimmen, fehlt uns nur noch die Zeit, in der er abgebremst wird. Wir wissen aber, dass dies auf einer strecke von 2 Metern geschieht und dass er sich während dem Bremsvorgang wie ein Körper bewegt, gleichmäßig beschleunigt wird.
+                <br>
+                <math class="newline">
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>t</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>t</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>&Delta;v</mi>
+                    <mo>&middot;</mo>
+                    <mi>t</mi>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>t</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>2</mn>
+                            <mo>&middot;</mo>
+                            <mi>s</mi>
+                        </mrow>
+                        <mi>&Delta;v</mi>
+                    </mfrac>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>t</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>2</mn>
+                            <mo>&middot;</mo>
+                            <mi>2m</mi>
+                        </mrow>
+                        <mrow>
+                            <mn>41</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                        </mrow>
+                    </mfrac>
+                </math>
+                <br>
+                <math class="newline">
+                    <mi>t</mi>
+                    <mo>&asymp;</mo>
+                    <mn>0,1s</mn>
+                </math>
+            </p>
+            <p>Beim Bremsvorgang wirkt auf das Bein von Kirk eine Beschleunigung von
+                <math>
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>&Delta;t</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>41</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                        </mrow>
+                        <mn>0,1 s</mn>
+                    </mfrac>
+                    <mo>&asymp;</mo>
+                    <mn>410</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math>. Das ist eine ziemlich hohe Beschleunigung, die mehr als dem 40-fachen der Erdbeschleunigung entspricht. Mit dem 2. Newton-Axiom kann über das Gewicht von Kirk die auf sein Bein einwirkende Kraft berechnet werden:
+                <br>
+                <math class="newline">
+                    <mi>F</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mn>100 Kg</mn>
+                    <mo>&middot;</mo>
+                    <mn>410</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>41000 N</mn>
+                </math>
+            </p>
+            <p>Ein Kraft von 41000 N ist sehr, sehr viel. Das entspricht der gewichtskraft von 4 Tonnen. Bei dieser Kraft würde Spock nur noch das Bein von Kirk in der Hand halten und der Rest von Kirk würde sich weiterbewegen. Außerdem würde Spock aus der Sache auch nicht ganz unbeschadet herauskommen, da er ja mit einer höheren Geschwindigkeit auf Kirk zu fliegt und in derselben Zeit bremst. Ohne einen <i>Trägheitsdämpfer</i>, die häufig in Star Trek erwähnt werden, wäre das absolut unmöglich</p>
+            <p>Damit Spock eine Chance hat, den fallenden Kirk zu retten, müsste die Kraft auf dessen Bein nicht größer als 2000 N sein. Dann läge die Bremsbeschleunigung bei
+                <math>
+                    <mi>a</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>F</mi>
+                        <mi>m</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>2000 N</mn>
+                        <mn>100 Kg</mn>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>20</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                </math>. Seine Bremszeit läge bei
+                <math>
+                    <mi>&Delta;t</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&Delta;v</mi>
+                        <mi>a</mi>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mn>41</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                        </mrow>
+                        <mrow>
+                            <mn>20</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <msup>
+                                    <mn>s</mn>
+                                    <mn>2</mn>
+                                </msup>
+                            </mfrac>
+                        </mrow>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>2,05 s</mn>
+                </math>. Der Bremsvorgang wäre also nur auf einer Strecke von
+                <math>
+                    <mi>s</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mi>a</mi>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>t</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <mn>20</mn>
+                    <mfrac>
+                        <mn>m</mn>
+                        <msup>
+                            <mn>s</mn>
+                            <mn>2</mn>
+                        </msup>
+                    </mfrac>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mrow>
+                            <mo>(</mo>
+                            <mn>2,05 s</mn>
+                            <mo>)</mo>
+                        </mrow>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mn>42 m</mn>
+                </math> zu realisieren. Im Film sind aber weitaus weniger als 40 Meter zu beobachten, auf denen Kirk abgebremst wird.</p>
+        </div>
+        <div>
+            <h1>Wie funktioniert Beamen?</h1>
+            <p>Das einzig Wahre Merkmal an Star Trek ist der Transporter, mit dem es möglich ist, Personen zu beamen. Möchte die Crew der Enterprise einen neuen Planeten erkunden, begibt sich das Außenteam in den Transporter-Raum, wird dort vom Transporter <i>dematerialisiert</i> und danach auf der Oberfläche des Planeten <i>rematerialisiert</i>. Währenddessen befindet sich das Schiff im <i>Standardorbit</i>, in dem es auf die Rückkehr des Außenteams wartet.</p>
+            <p>Das Beamen wurde von den Autoren von Star Trek aus reiner Not in der <i>Serie The original Series</i> erfunden. Es wäre nämlich zu teuer geworden, Filmszenen zu drehen, in denen das Schiff auf einer Planetenoberfläche landet. In den 1960er Jahren hätte man sich so etwas einfach nicht leisten können. Irgendwann kam einem Mitarbeiter die Idee, dass man nicht die ganze Crew der Enterprise auf der Planetenoberfläche braucht, sondern nur ein Außenteam und dass das ganze Schiff nicht auf der Planetenoberfläche zu landen braucht, sondern das Außenteam sich in einen speziellen Raum begeben könnte, von dem aus es auf die Planetenoberfläche gelangt. Daraus entstand die Idee des Beamens. Für die Produktion der Serie konnten hohe Summen geld gespart werden, weil man den Transporterraum häufig wiederverwenden konnte.</p>
+            <p>Aber wie soll das mit dem Beamen überhaupt funktionieren? In der 22. Folge <i>Seit es Menschen gibt</i> aus der dritten Staffel von <i>the original Series</i> trifft die Enterprise mitten im Weltall auf einen in einem Sessel sitzenden Abraham Lincoln. Dieser wird an Bord gebeamt und gibt vor, nur das <i>technische Verständnis</i> des “legendären amerikanischen Präsidenten aus dem 19. Jahrhundert”(<i>Seit es Menschen Gibt</i>, Star Trek - The original Series, 22. Folge, 3. Staffel) zu sein. Es beginnt ein Dialog zwischen Kirk und Lincoln.</p>
+            <p class="dialogue">Kirk: “Die Besatzung freut sich, Sie an Bord begrüßen zu dürfen, Herr Präsident.”
+                <br><i>(Während der Zeremonie sind alle Offiziere in Gala-Uniform im Transporterraum und es wird Musik gespielt. Zwei Sicherheitsleute richten provisorisch Handphaserwaffen auf Lincoln)</i>
+                <br>Lincoln: “Ich danke Ihnen. Wo ist ihr Musikchor?”
+                <br>Kirk: “Das ist ein Tonband, Herr Präsident. Es ist nicht üblich, mit einem Musikchor durchs Weltall zu reisen.”
+                <br>Lincoln: “Tonband? Musik, sagten Sie? Wirklich gut. Vielleicht wird Mr. Spock so freundlich sein, mir das später zu erklären. Das ist das erste Mal, dass ich auf diese Weise ein Schiff betrete. Hochinteressant. Erzählen Sie mir etwas über diese Erfindung.”
+                <br><b>Kirk: Es ist ein Energie-Materie-Umwandler. Die Moleküle in Ihrem Körper werden in Strahlungsenergie umgesetzt, in diese Kammer gebeamt und dann wieder in ihre ursprüngliche Form zurückverwandelt.”</b>
+                <br>Lincoln: Nun, ich bin immerhin hier … und mein Herz schlägt auch noch. Ich verstehe zwar nicht, was das Wort gebeamt bedeutet - trotzdem mein Kompliment! Ach, was ich noch sagen wollte: Nehmen Sie ihre Waffen weg. Seit meinem Tod habe ich eine Abneigung gegenüber Handfeuerwaffen.</p>
+            <p>Das Prinzip hinter dem Beamen wird von Kirk also folgendermaßen erklärt: Zuerst wird eine Person gescannt, um die Lage ihrer Atome und Moleküle festzustellen. Danach werden die Atome der Person aufgelöst und in Strahlungsenergie umgewandelt. Diese Strahlung wird in den Transporter gelenkt, in dem die Person aus der Strahlung in ihre Atome wieder zurück verwandelt wird. Ist so ein Vorgang überhaupt physikalisch möglich?</p>
+            <p>Schauen wir uns zuerst mal den zweiten Teil des Verfahrens genauer an, indem die zu beamende Person in Strahlungsenergie umgewandelt und dann in den Transporterraum geschickt wird. Der andere Teil, indem es darum geht, die Person zu erfassen und im Transporterraum wieder zu rekonstruieren, wird nachfolgend behandelt. Bin ins Jahr 1905 lautete die Antwort auf die Frage, ob man Materie in Energie umwandeln könnte, klar und eindeutig: Nein! Bis dahin waren Energie und Materie als Strikt getrennt angesehen. Im Jahr 1905 änderte sich alles schlagartig, indem Albert Einstein seine
+                <i>Relativitätstheorie</i> veröffentlichte. Die Einstein’sche Formel
+                <math>
+                    <mi>E</mi>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mi>c</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+                sagt nämlich aus, dass Masse und Energie äquivalent zueinander sind. Masse und Energie lassen sich laut der Relativitätstheorie auch ineinander umwandeln. Das mag sich merkwürdig anhören, aber aus Energie kann Masse werden und aus Masse kann Energie werden. Da ein elektromagnetisches Feld Energie enthält, ist es möglich, einen Menschen in eine elektromagnetische Welle und somit in Strahlungsenergie umzuwandeln. Es ist auch umgekehrt möglich, aus Energie Elementarteilchen zu bilden und Materie zu erzeugen. Dieser Teil des Verfahrens vom Beamen ist also theoretisch möglich.</p>
+            <p>Leider ist das praktisch noch lange nicht realisierbar, denn die Energiemenge eines Menschen wäre gigantisch. Bei einem Menschen mit dem Gewicht von 100 Kilogramm würde eine Energie von
+                <math>
+                    <mi>W</mi>
+                    <mo>=</mo>
+                    <mn>100 Kg</mn>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mrow>
+                            <mo>(</mo>
+                            <mn>300000000</mn>
+                            <mfrac>
+                                <mn>m</mn>
+                                <mn>s</mn>
+                            </mfrac>
+                            <mo>)</mo>
+                        </mrow>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mn>9</mn>
+                    <mo>&middot;</mo>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>18</mn>
+                    </msup>
+                    <mn>J</mn>
+                </math>
+                frei werden. Das sind fast 10 Trillionen Joule. Eine solche Energiemenge entspricht dem gesamten Energieverbrauch der Bundesrepublik Deutschland in einem Jahr. Eine so gigantische Energiemenge müsste man irgendwie kontrollieren können und das wäre technisch mit den heute bekannten Mitteln nicht einmal ansatzweise umzusetzen.</p>
+            <p>Kommen wir nun zu dem zweiten Aspekt, auf dem das Beamen beruht: bevor die Materie in Strahlungsenergie umgewandelt wird, wird sie gescannt. Dabei wird die Lage aller Atome festgestellt. Mit den daraus resultierenden Scanergebnissen wird die Materie im Transporter oder wo anders aus der Strahlungsenergie wieder rekonstruiert. Ist es überhaupt möglich, die Lage aller Atome in einem Körper zu scannen und den Körper aus den daraus resultierenden Daten zu rekonstruieren?</p>
+            <p>Auch hier wäre bis ins Jahr 1981 die Antwort ein klare Nein gewesen. Dann aber wurde von Gerd Binnig und Heinrich Rohrer in der Schweiz das Rastertunnelmikroskop erfunden, Mit einem Rastertunnelmikroskop ist es möglich, eine Oberfläche zu scannen. Das Ergebnis ist kein farbiges Bild, aber die Atome können dennoch genau ausgemacht werden. Man ist also in der Lage, die Atome zu orten.</p>
+            <p>Das technische Problem an der Sache ist nur, dass man ein Rastertunnelmikroskop nur im Ultrahochvakuum und bei Temperaturen nahe dem absoluten Nullpunkt möglich ist. Außerdem ist das Verfahren sehr, sehr Zeitintensiv in der Durchführung, weshalb es ziemlich lange dauern würde, einen Menschen abzuscannen. Zu guter letzt ist es mit einem Rastertunnelmikroskop nicht möglich, ein ganzes Objekt, sondern nur dessen Oberfläche abzuscannen. Obwohl das Problem von der technischen Seite schier unmöglich zu lösen ist, haben die Ingenieure bis ins 22. Jahrhundert aber genug Zeit, dieses zu lösen.</p>
+            <p>Von der physikalischen Seite gibt es noch eine weitere Hürde: die <i>Heisenbergsche Unschärferelation</i>. Die Heisenbergsche Unschärferelation besagt, dass man von einem Teilchen nie in der Lage sein kann, seinen Ort exakt zu messen. Um genau zu sein, kann man den Ort und des Impuls eines Teilchens und somit dessen Energie nie genau bestimmen kann. Dies wird von Werner Heisenberg, dem Begründer der Heisenbergschen Unschärferelation sogar mathematisch bewiesen. Kurz zusammengefasst: man wird nie in der Lage sein, alle Informationen über ein Atom zu einem bestimmten Zeitpunkt bestimmen zu können. Daraus folgt, dass man auch niemals in der Lage wäre, einen menschlichen Körper fehlerfrei einzuscannen. Würde man dennoch versuchen, mit den aus einem solchen Scan einen Körper wieder zusammenzusetzen, so würden sich viele, viele kleine Fehler einschleichen und bei der Tatsache, dass ein menschlicher Körper aus
+                <math>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>28</mn>
+                    </msup>
+                </math> Atomen besteht, hätte das für das Endprodukt fatale Folgen. Ohne die Exakte Lage der Atome ist das Beamen also nicht möglich.</p>
+            <p>Den Autoren von Star Trek wurde das bewusst und so kam es in der 2. Folge <i>Todesangst</i> der 6. Staffel von <i>the next generation</i> zu einem Dialog, der die <i>Star Trek - Lösung</i> für das Problem verrät. Nach einem Transport fühlt sich Barclay nicht sonderlich gut und als sein Chief O’Brien davon Wind bekommt, überprüft dieser mit Captain La Forge den Transporterraum.</p>
+            <p class="dialogue">
+                O’Brien: “Der Begrenzungsstrahl des Subsystems ist o. k., ebenso die Phasenübergangsspulen.”
+                <br>La Forge: “Der Rasterpuffer ist in Ordnung.”
+                <br>O’Brien: “Die Emitterkonsolen, die Zielscanner, alles arbeitet perfekt. Dieses System ist sauber und auch das des Forschungsschiffes.”
+                <br>La Forge: “Rege! Es gibt viele Energieflüsse im Transporterstrahl. Vermutlich haben Sie einen Spannungsstoß gesehen.”
+                <br>Barclay: “Jiaaaa...”
+                <br>O’Brien: “ich werde noch die <b>Heisenberg-Kompensatoren</b> scannen.”
+                <br>Barclay: “Oh oh, nein nein nein, Chief! Sie haben bereits genug getan.”
+                <br>O’Brien: “Ist kein Problem. Sie können mir dabei helfen.”</p>
+                <p>Der Transporter der USS Enterprise verwendet also Heisenberg-Kompensatoren. Aber wie soll das möglich sein, die Heisenbergsche Unschärferelation auszukompensieren? Diese ist nämlich eine Physikalische Tatsache und kann mit dem heutigen Stand der Technik weder ausgeschaltet, noch auskompensiert werden. Dennoch scheint es bei der Enterprise zu funktionieren.</p>
+                <p>Im Jahr 1982 wurde sogar bewiesen, dass man die Unschärferelation umgehen kann. Das Verfahren dahinter ist aber komplett anders als das beim Beamen, denn beim Beamen wird das Original nur <i>kopiert</i> und das Original zerstört. Bei dem anderen Verfahren, der sogenannten Quanten-Teleportation geschieht zusammengefasst folgendes: Bei der Zerstörung eines Elementarteilchens gehen dessen Informationen auf ein anderes teilchen über, welches danach zu dem vorherigen Teilchen komplett identisch ist. Der Vorgang ist aber relativ kompliziert zu erklären und wird hier deshalb nicht näher erläutert. Es sei hinzuzufügen zu sagen, dass bei der Quantenteleportation das Original zerstört wird, während bei Star Trek das Original in Energie umgewandelt wird.</p>
+            <p>Zu guter Letzt gibt es noch ein letztes Problem beim Beamen zu lösen, dass in ferner Zukunft mit Sicherheit gelöst werden kann: die enorm große anfallende Datenmenge. Nachdem der Körper gescannt wurde, müssen dessen Daten noch irgendwo gespeichert werden, bevor es zur Rematerialisierung kommt. Dies wäre natürlich eine riesige Datenmenge, die die heutige Vorstellung von Big Data sprengt. Wenn man bedenkt, dass ein Menschlicher Körper aus ungefähr
+                <math>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>18</mn>
+                    </msup>
+                </math> Atomen besteht, dann bräucht man insgesamt
+                <math>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>28</mn>
+                    </msup>
+                </math> Bytes, was umgerechnet
+                <math>
+                    <msup>
+                        <mn>10</mn>
+                        <mn>16</mn>
+                    </msup>
+                </math> Terabyte entspricht. In der Zukunft wird es aber bestimmt Möglichkeiten geben, solche Datenmengen zu verarbeite. Die Speicherkapazität von Datenträgern steigt ziemlich rasant und außerdem können Kompressionsverfahren (man denke an MP3) eingesetzt werden, die die Datenmenge komprimieren.</p>
+        </div>
+        <div>
+            <h1>Quellen</h1>
+            <ul>
+                <li><a target="_blank" href="https://www.piper.de/buecher/die-star-trek-physik-isbn-978-3-492-05653-3">Tolan Metin, DIE STAR TREK PHYSIK, 1. Auflage 2016</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Star_Trek">https://de.wikipedia.org/wiki/Star_Trek</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Raumschiffe_und_Raumstationen_im_Star-Trek-Universum">https://de.wikipedia.org/wiki/Raumschiffe_und_Raumstationen_im_Star-Trek-Universum</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Star-Trek-Technologie">https://de.wikipedia.org/wiki/Star-Trek-Technologie</a></li>
+                <li><a target="_blank" href="https://startrek.de/">https://startrek.de/</a></li>
+                <li><a target="_blank" href="http://de.memory-alpha.wikia.com/wiki/Portal:Star_Trek">http://de.memory-alpha.wikia.com/wiki/Portal:Star_Trek</a></li>
+                <li><a target="_blank" href="http://de.memory-alpha.wikia.com/wiki/Portal:Raumschiffe_und_Raumstationen">http://de.memory-alpha.wikia.com/wiki/Portal:Raumschiffe_und_Raumstationen</a></li>
+                <li><a target="_blank" href="http://de.memory-alpha.wikia.com/wiki/Portal:Wissenschaft_und_Technik">http://de.memory-alpha.wikia.com/wiki/Portal:Wissenschaft_und_Technik</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Str%C3%B6mungswiderstand">https://de.wikipedia.org/wiki/Str%C3%B6mungswiderstand</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Fall_mit_Luftwiderstand">https://de.wikipedia.org/wiki/Fall_mit_Luftwiderstand</a></li>
+                <li><a target="_blank" href="https://www.leifiphysik.de/mechanik/reibung-und-fortbewegung/luftreibung">https://www.leifiphysik.de/mechanik/reibung-und-fortbewegung/luftreibung</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Heisenbergsche_Unsch%C3%A4rferelation">https://de.wikipedia.org/wiki/Heisenbergsche_Unsch%C3%A4rferelation</a></li>
+                <li><a href="https://www.leifiphysik.de/quantenphysik/quantenobjekt-elektron/unschaerferelation">https://www.leifiphysik.de/quantenphysik/quantenobjekt-elektron/unschaerferelation</a></li>
+                <li><a href="https://www.frustfrei-lernen.de/quantenphysik/werner-heisenberg-unschaerferelation.html">https://www.frustfrei-lernen.de/quantenphysik/werner-heisenberg-unschaerferelation.html</a></li>
+                <li><a href="http://www.chemie.de/lexikon/Heisenbergsche_Unsch%C3%A4rferelation.html">http://www.chemie.de/lexikon/Heisenbergsche_Unsch%C3%A4rferelation.html</a></li>
+                <li><a href="https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie">https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie</a></li>
+                <li><a href="https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie/relativistische-energie">https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie/relativistische-energie</a></li>
+                <li><a href="https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie/energie-impuls-beziehung">https://www.leifiphysik.de/relativitaetstheorie/spezielle-relativitaetstheorie/energie-impuls-beziehung</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/%C3%84quivalenz_von_Masse_und_Energie">https://de.wikipedia.org/wiki/%C3%84quivalenz_von_Masse_und_Energie</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Lichtgeschwindigkeit">https://de.wikipedia.org/wiki/Lichtgeschwindigkeit</a></li>
+                <li><a href="https://www.lernhelfer.de/schuelerlexikon/physik/artikel/lichtgeschwindigkeit">https://www.lernhelfer.de/schuelerlexikon/physik/artikel/lichtgeschwindigkeit</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Relativit%C3%A4tstheorie">https://de.wikipedia.org/wiki/Relativit%C3%A4tstheorie</a></li>
+                <li><a href="https://www.leifiphysik.de/relativitaetstheorie">https://www.leifiphysik.de/relativitaetstheorie</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Quantenteleportation">https://de.wikipedia.org/wiki/Quantenteleportation</a></li>
+                <li><a href="http://www.spektrum.de/lexikon/physik/quantenteleportation/11885">http://www.spektrum.de/lexikon/physik/quantenteleportation/11885</a></li>
+                <li><a href="http://www.spektrum.de/news/verschraenkte-photonen-aus-dem-all/1464637">http://www.spektrum.de/news/verschraenkte-photonen-aus-dem-all/1464637</a></li>
+                <li><a href="https://www.google.de/search?client=ubuntu&channel=fs&q=wie+viel+sind+1+terabyte+in+bytes&ie=utf-8&oe=utf-8&gfe_rd=cr&dcr=0&ei=1RY4WqzvBc3BXsjBnUg">https://www.google.de/search?client=ubuntu&channel=fs&q=wie+viel+sind+1+terabyte+in+bytes&ie=utf-8&oe=utf-8&gfe_rd=cr&dcr=0&ei=1RY4WqzvBc3BXsjBnUg</a></li>
+                <li><a href="https://www.forschung-und-wissen.de/nachrichten/physik/beamen-von-informationen-durch-quantenteleportation-13371907">https://www.forschung-und-wissen.de/nachrichten/physik/beamen-von-informationen-durch-quantenteleportation-13371907</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/MP3">https://de.wikipedia.org/wiki/MP3</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Str%C3%B6mungswiderstandskoeffizient">https://de.wikipedia.org/wiki/Str%C3%B6mungswiderstandskoeffizient</a></li>
+                <li><a href="https://jumk.de/formeln/cw-wert.shtml">https://jumk.de/formeln/cw-wert.shtml</a></li>
+                <li><b>Letzter Zugriff zu den Internetquellen: 17.12.2017</b></li>
+            </ul>
+        </div>
+    </body>
+</html>

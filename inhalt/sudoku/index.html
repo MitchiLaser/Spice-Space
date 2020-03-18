@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <title>Sudoku - L&ouml;sung</title>
+        <meta name="viewport" content="initial-scale=2, maximum-scale=1">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="Inhalt">
+            <header>Sudoku - Lösungsfinder</header>
+            <div id="Eingabe">
+                <h1>Bekannte Werte eingeben ...</h1>
+                <table id="Tabelle"></table>
+            </div>
+            <div id="ErgebnisBerechnen">
+                <h1>... und das Sudoku lösen lassen.</h1>
+                <p class="ButtonZeile"><input type="button" value="Ergebnis Berechnen" id="ErgebnisBerechnenButton" onclick="ErgebnisBerechnen()"></p>
+            </div>
+            <div id="Fehlermeldung">
+                <h1>... Mist, dabei ist wohl <b>was schief gelaufen!</b></h1>
+                <ul id="FehlermeldungAusgabezeile"></ul>
+                <p>Fehler beseitigen und dann noch einmal versuchen.</p>
+                <p class="ButtonZeile"><input type="button" value="Ergebnis Berechnen" id="ErgebnisBerechnenButton2" onclick="ErgebnisBerechnen()"></p>
+            </div>
+            <div id="Ausgabe">
+                <h1>... und die Lösung erhalten.</h1>
+                <table id="Ausgabetabelle"></table>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <footer>&copy; Michael Hohenstein, 2017</footer>
+    </body>
+</html>

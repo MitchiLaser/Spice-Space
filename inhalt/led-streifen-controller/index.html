@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Spice-Space</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=2, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../style.css" />
+        <noscript>
+            <link rel="stylesheet" type="text/css" href="../../noscript.css" />
+        </noscript>
+    </head>
+    <body>
+        <header>
+            <a href="../../">Spice-Space</a>
+        </header>
+        <main>
+            <section class="banner">
+                LED-Streifen Controller
+            </section>
+            <section>
+                <h1>Beschreibung</h1>
+                <p>Bei dieser selbstgebastelten und einfach nachbaubaren Platine handelt es sich um einen Controller, um RGB LED-Streifen (keine WS2812 oder andere adressierbare LEDs) über WLAN ansteuern zu können. Dabei wird ein Mikrocontroller vom Typ ESP8266 verwendet, um das Webinterface bereit zu stellen. Mithilfe von 3 Transistoren ist der Mikrocontroller in der Lage, auf dem LED-Streifen eine Farbe anzusteuern.</p>
+                <p>Die LED-Streifen können verwendet werde um diverse Möbel zu verzieren oder Räume mit einer &bdquo;Party-Beleuchtung&ldquo; auszustatten.</p>
+            </section>
+            <article class="images">
+                <h1>Bilder</h1>
+                <section>
+                    <img alt="Sofa" src="../../media/led-streifen-controller/sofa-leds.jpg">
+                    <img alt="LED-Streifen" src="../../media/led-streifen-controller/led-streifen.jpg">
+                </section>
+                <section class="images">
+                    <img alt="Controller" src="../../media/led-streifen-controller/controller.jpg">
+                    <img alt="Platine" src="../../media/led-streifen-controller/unterseite.jpg">
+                </section>
+            </article>
+            <section>
+                <h1>Nachbau</h1>
+                <p>Der Nachbau erfolgt durch Nachbauen der Platine sowie flashen der Firmware. Dabei müssen an einer Stelle die SSID sowie das Passwort des WLAN-APs angepasst werden. Weiterhin müssen im Programmcode zweimal die Pins deklariert werden, die für die Farben Rot, Grün und Blau verwendet werden.</p>
+                <p class="notification">Eine ausführliche Beschreibung erscheint in absehbarer Zeit mit der neuen Version der Firmware sowie einer Ausarbeitung einer Platine.</p>
+            </section>
+            <article>
+                <a href="https://github.com/MitchiLaser/RGB_LED_Stripe_Controller" target="_blank">
+                    <h1>Quellcode der Firmware</h1>
+                    <section>
+                        <p>Die Firmware für den ESP8266 ist in einem dafür vorgesehenen Github-Repository zu finden.</p>
+                        <p class="keywords">Git, Github</p>
+                    </section>
+                </a>
+            </article>
+        </main>
+        <footer>
+            <ul>
+                <li>&copy; <a>Michael Hohenstein</a>, 2020</li>
+                <li><a href="../../inhalt/impressum/">Impressum</a> | <a href="../../inhalt/datenschutz/"> Datenschutz</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>
