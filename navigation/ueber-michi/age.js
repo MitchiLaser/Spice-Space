@@ -46,6 +46,7 @@ Date.prototype.print = function(format){ // print the date within a fancy format
             default:  Return += format.charAt(i);
         }
     }
+    return Return;
 }
 
 Date.prototype.leapYear = function(){
