@@ -1,0 +1,43 @@
+html,
+body{
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size: 1rem;
+}
+body > *{
+    flex: 0 0 auto;
+    display: block;
+    padding: 10px 5%;
+    font-size: 1.3rem;
+}
+body > header{
+
+}
+body > main{
+    flex: 1 1 auto;
+}
+body > footer{
+    background-image: url(grass_1_crop_redraw.svg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #fff;
+    text-shadow: 0 0 2px #212121;
+}
+a,
+a:link{
+    color: inherit;
+    text-decoration-line: inherit;
+}
