@@ -59,7 +59,7 @@ Date.prototype.leapYear = function(){
 }
 
 Date.prototype.calcDiffToday = function (){
-    var now = new Date('2020-04-9');
+    var now = new Date();
     var diff = Math.floor((now - this)/ (1000 * 60 * 60 * 24));
     
     // if you were born before the leap day: remove the day from this year
