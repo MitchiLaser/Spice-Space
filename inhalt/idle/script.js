@@ -16,6 +16,6 @@ function updateStatus(event){
     }
     else{
         document.getElementsByTagName("main")[0].children[1].style.display = "none";
-        document.getElementsByTagName("main")[0].children[2].style.display = "flex"; // fake-content
+        document.getElementsByTagName("main")[0].children[2].style.display = "block"; // fake-content
     }
 }

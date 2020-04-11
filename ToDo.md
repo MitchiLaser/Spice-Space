@@ -11,5 +11,5 @@
 - Instagram, Twitter und andere Social-Media Profile Bilder hinzufügen
 - Physik-GFS mit MathJax darstellen lassen
 - Elysia-Artikel auf Webseite?
-- Favicon für die Mathe-Slideshow (Physik dito), idle und für den Sudoku Lösungsfinder.
+- Favicon für die Mathe-Slideshow (Physik dito) und für den Sudoku Lösungsfinder.
 - Projekte: LED-Cube Snake
