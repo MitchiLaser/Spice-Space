@@ -136,6 +136,7 @@ main > article:last-of-type p{
 }
 main > article:last-of-type section{
     clear: both;
+    margin: 5rem 0;
 }
 main > article > section:nth-of-type(2n) > img{
     width: 45vw;
@@ -169,3 +170,12 @@ main > article > section:nth-of-type(2n+1) > img{
         display: block;
     }
 }
+
+
+/* just for development purpose: */
+main > *{
+    display: none !important;
+}
+main > article:last-of-type{
+    display: block !important;
+} 
