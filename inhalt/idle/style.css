@@ -164,9 +164,21 @@ main > article > section:nth-of-type(2n+1) > img{
     body > footer > p:first-child{
         font-style: italic;
     }
+    main > article:last-of-type section{
+        margin: 0;
+    }
     section img{
         float: none !important;
         margin: 2rem auto !important;
         display: block;
     }
 }
+
+
+/* just for development purpose: 
+main > *{
+    display: none !important;
+}
+main > article:last-of-type{
+    display: block !important;
+} */
