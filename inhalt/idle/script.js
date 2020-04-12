@@ -6,6 +6,8 @@ window.addEventListener("load", function(){
         window.addEventListener('offline', updateStatus);
 
         updateStatus();
+
+        window.setInterval(updateStatus, 1000);
     }, 3000);
 });
 
