@@ -2,6 +2,7 @@
 :root{
     --layout-background-color: #212121;
     --layout-font-color: #fff;
+    --ssh-text-color: #00a7b6;
 }
 
 /* general settings */
@@ -23,9 +24,7 @@ body{
     border: none;
     padding: 0;
     font-family: sans-serif;
-    height: 100vh;
-    width: 100vw;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 body{
     display: flex;
@@ -37,25 +36,29 @@ body > *{
     flex: 0 0 auto;
     display: block;
     padding: 10px 5%;
-    font-family: monospace;
+    font-family: sans-serif;
 }
 
 
 /* Header */
 header{
+    font-family: monospace;
     font-size: 1.5rem;
     background-color: var(--layout-background-color);
     color: var(--layout-font-color);
     padding: 2% 5%;
 }
-
+header h1{
+    color: #fff;
+}
 header .ssh{
-    color: #00a7b6;
+    color: var(--ssh-text-color);
 }
 
 
 /* Footer */
 footer{
+    font-family: monospace;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -76,4 +79,33 @@ body > footer > p:last-child{
 /* main content */
 main{
     flex: 1 1 auto;
+    font-family: sans-serif;
+}
+/*main .ssh{
+    color: var(--ssh-text-color);
+    font-weight: bold;
+}*/
+main h1{
+    color: #212121;
+    font-size: 2rem;
+}
+main h2{
+    color: #616161;
+}
+
+
+/* Contents */
+main nav ul{
+    display: block;
+    list-style-type: "→ ";
+    margin: 0 5%;
+    padding: 0;
+    font-size: 1.2rem;
+}
+main nav li{
+    margin: 0.7rem 0;
+}
+
+main section#access-windows article{
+    margin: auto 5%;
 }
