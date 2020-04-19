@@ -133,7 +133,7 @@ main p.codeblock{
 
 
 /* break-point for smartphones */
-@media (max-width: 600px){
+@media (max-width: 670px){
     footer{
         flex-direction: column;
     }
