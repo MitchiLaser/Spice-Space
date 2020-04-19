@@ -38,6 +38,7 @@ body{
     padding: 0;
     font-family: sans-serif;
     font-size: 1.1rem;
+    min-width: 550px;
 }
 body{
     display: flex;
