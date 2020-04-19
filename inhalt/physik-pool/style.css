@@ -3,6 +3,9 @@
     --layout-background-color: #212121;
     --layout-font-color: #fff;
     --ssh-text-color: #00a7b6;
+    --code-color: var(--ssh-text-color);
+
+    --main-max-width: 1000px;
 }
 
 /* general settings */
@@ -15,6 +18,16 @@ a:visited{
 a:hover,
 a:active{
     text-decoration: underline;
+}
+
+p{
+    line-height: 1.5;
+    margin: 20px 5%;
+}
+
+code{
+    font-family: monospace;
+    color: var(--code-color);
 }
 
 /* document structure */
@@ -80,32 +93,39 @@ body > footer > p:last-child{
 main{
     flex: 1 1 auto;
     font-family: sans-serif;
+    max-width: var(--main-max-width);
 }
-/*main .ssh{
-    color: var(--ssh-text-color);
-    font-weight: bold;
-}*/
+main .ssh{
+    font-family: monospace;
+}
 main h1{
     color: #212121;
     font-size: 2rem;
 }
 main h2{
     color: #616161;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 
 /* Contents */
-main nav ul{
+main ul{
     display: block;
     list-style-type: "→ ";
     margin: 0 5%;
     padding: 0;
     font-size: 1.2rem;
 }
-main nav li{
+main li{
     margin: 0.7rem 0;
 }
 
-main section#access-windows article{
-    margin: auto 5%;
+main article ul{
+    margin: 0 10%;
+    font-size: inherit;
+}
+
+main p.codeblock{
+    margin: 20px 0 20px 10%;
 }
