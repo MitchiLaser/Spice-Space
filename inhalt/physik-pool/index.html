@@ -26,19 +26,19 @@
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
                     <!--<li><a href="#issues">Problembehandlung</a></li>-->
                 </ul>
-                <p>Falls du dich mit <span class="ssh">SSH</span> schon auskenns und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
+                <p>Falls du dich mit <span class="ssh">SSH</span> schon auskennst und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
                 <p class="code"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
             </nav>
             <article id="about-ssh">
                 <h1>Was ist <span class="ssh">SSH</span>?</h1>
-                <p>Bei <span class="ssh">SSH</span> handelt es sich um ein Netzwerkprotokoll mit dessen Hilfe man eine verschlüsselte Verbindung zu einem entfernten Gerät herstellen kann. Gleichzeitig ist <span class="ssh">SSH</span> auch der Name des Programms mit dem die <span class="ssh">SSH</span> Verbindung hergestellt wird. Mithilfe von <span class="ssh">SSH</span> kann nun eine Sitzung in der Linux-Shell auf einem der Poolraum-Rechner bedient werden ohne dafür im Poolraum sein zu müssen. Dazu wird eine <span class="ssh">SSH</span> Verbindung zum Physik-Poolraum aufgebaut. Wie das funltioniert wird in den untenstenenden Abschnitten &#x2b07; für jedes Betriebssystem erklärt.</p>
+                <p>Bei <span class="ssh">SSH</span> handelt es sich um ein Netzwerkprotokoll mit dessen Hilfe man eine verschlüsselte Verbindung zu einem entfernten Gerät herstellen kann. Gleichzeitig ist <span class="ssh">SSH</span> auch der Name des Programms mit dem die <span class="ssh">SSH</span> Verbindung hergestellt wird. Mithilfe von <span class="ssh">SSH</span> kann nun eine Sitzung in der Linux-Shell auf einem der Poolraum-Rechner bedient werden ohne dafür im Poolraum sein zu müssen. Dazu wird eine <span class="ssh">SSH</span> Verbindung zum Physik-Poolraum aufgebaut. Wie das funktioniert wird in den untenstenenden Abschnitten &#x2b07; für jedes Betriebssystem erklärt.</p>
                 <p>Weiterhin kann man <span class="ssh">SSH</span> auch verwenden um Dateien zwischen dem Poolraum und einem eigenen PC auszutauschen. Dazu wird das bei <span class="ssh">SSH</span> häufig mitgelieferte Programm <span class="ssh">SCP</span> verwenden. Auch hierfür wurden Anleitungen für unterschiedliche Betriebssysteme verfasst.</p>
             </article>
             <section id="access-windows">
                 <h1>Zugang unter Windows</h1>
                 <article id="access-windows-10">
                     <h2>Windows 10</h2>
-                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angenkommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                     <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
                     <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
@@ -54,7 +54,9 @@
                     <ul>
                         <li><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.73-installer.msi">PuTty 64-Bit Version 0.73</a></li>
                         <li><a href="https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.73-installer.msi">PuTty 32-Bit Version 0.73</a></li>
-                    </ul>                    
+                    </ul>
+                    <p>Nach der Installation öffnet sich ein Fenster das wiefolgt aussieht:</p>
+                    
                 </article>
             </section>
             <!--<article id="access-mac">
