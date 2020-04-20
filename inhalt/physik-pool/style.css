@@ -79,14 +79,21 @@ footer{
     background-color: var(--layout-background-color);
     color: var(--layout-font-color);
 }
-footer > p{
+footer p{
     margin: 20px 10px;
+    vertical-align: middle;
 }
-body > footer > p:first-child{
+footer p:first-child{
     margin-left: 0;
 }
-body > footer > p:last-child{
+footer p:last-child{
     margin-right: 0;
+}
+
+/* Das Logo muss mittig zentriert werden! */
+footer p:first-child{
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -114,13 +121,17 @@ main h2{
 /* Contents */
 main ul{
     display: block;
-    list-style-type: "→ ";
+    list-style-type: none;
     margin: 0 5%;
     padding: 0;
     font-size: 1.2rem;
 }
 main li{
     margin: 0.7rem 0;
+}
+main li::before{
+    content: "➡️ ";
+    color: var(--layout-background-color);
 }
 
 main article ul{
@@ -132,9 +143,20 @@ main p.codeblock{
     margin: 20px 0 20px 10%;
 }
 
+main a,
+main a:link,
+main a:visited{
+    color: var(--ssh-text-color);
+}
+
+main ul a,
+main ul a:link,
+main ul a:visited{
+    color: inherit;
+}
 
 /* break-point for smartphones */
-@media (max-width: 670px){
+@media (max-width: 730px){
     footer{
         flex-direction: column;
     }

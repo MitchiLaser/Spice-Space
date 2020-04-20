@@ -26,17 +26,19 @@
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
                     <!--<li><a href="#issues">Problembehandlung</a></li>-->
                 </ul>
+                <p>Falls du dich mit <span class="ssh">SSH</span> schon auskenns und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
+                <p class="code"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
             </nav>
             <article id="about-ssh">
                 <h1>Was ist <span class="ssh">SSH</span>?</h1>
-                <p>Bei <span class="ssh">SSH</span> handelt es sich um ein Netzwerkprotokoll mit dessen Hilfe man eine verschlüsselte Verbindung zu einem entfernten Gerät herstellen kann. Gleichzeitig ist <span class="ssh">SSH</span> auch der Name des Programms mit dem die <span class="ssh">SSH</span> Verbindung hergestellt wird. Mithilfe von <span class="ssh">SSH</span> kann nun eine Sitzung der Linux-Shell auf einem der Poolraum-Rechner durchgeführt werden ohne dafür im Poolraum sein zu müssen. Dazu wird eine <span class="ssh">SSH</span> Verbindung zum Physik-Poolraum aufgebaut. Wie das funltioniert wird in den untenstenenden Abschnitten &#x2b07; für jedes Betriebssystem erklärt.</p>
+                <p>Bei <span class="ssh">SSH</span> handelt es sich um ein Netzwerkprotokoll mit dessen Hilfe man eine verschlüsselte Verbindung zu einem entfernten Gerät herstellen kann. Gleichzeitig ist <span class="ssh">SSH</span> auch der Name des Programms mit dem die <span class="ssh">SSH</span> Verbindung hergestellt wird. Mithilfe von <span class="ssh">SSH</span> kann nun eine Sitzung in der Linux-Shell auf einem der Poolraum-Rechner bedient werden ohne dafür im Poolraum sein zu müssen. Dazu wird eine <span class="ssh">SSH</span> Verbindung zum Physik-Poolraum aufgebaut. Wie das funltioniert wird in den untenstenenden Abschnitten &#x2b07; für jedes Betriebssystem erklärt.</p>
                 <p>Weiterhin kann man <span class="ssh">SSH</span> auch verwenden um Dateien zwischen dem Poolraum und einem eigenen PC auszutauschen. Dazu wird das bei <span class="ssh">SSH</span> häufig mitgelieferte Programm <span class="ssh">SCP</span> verwenden. Auch hierfür wurden Anleitungen für unterschiedliche Betriebssysteme verfasst.</p>
             </article>
             <section id="access-windows">
                 <h1>Zugang unter Windows</h1>
                 <article id="access-windows-10">
                     <h2>Windows 10</h2>
-                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>Power-Shell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü öffnen. Dort angenkommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angenkommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                     <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
                     <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
@@ -44,10 +46,15 @@
                 <p class="codeblock"><code>scp Testda.tei uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads</code></p>
                 <p>Um die Datei <b>Testda.tei</b> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
                 <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
-                <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird im Terminal durch den Aufruf von <code>pwd</code> ausgegeben.</p>
+                <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird in der PowerShell durch den Aufruf von <code>pwd</code> und in der Eingabeaufforderung durch den Aufruf von <code>cd</code> ausgegeben.</p>
                 </article>
                 <article id="access-windows-7-8">
                     <h2>Windows 8  / Windows 7</h2>
+                    <p>Bei Windows 8 oder Windows 7 wird leider kein <span class="ssh">SSH</span> Client mitgeliefert. Dieser muss nun nachinstalliert werden. Hierfür eignet sich das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTty</a> (Das ist natürlich nur eine Empfehlung des Verfassers dieser Anleitung. Man kann auch jeden beliebigen anderen <span class="ssh">SSH</span> Client verwenden). Das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTty</a> kann man unter den folgenden Links für 32-Bit und 64-Bit Rechner herunterladen. Wer nicht weiß, ob er einen 32- oder 64-Bit Rechner hat, probiert zuerst einfach mal die 64-Bit version aus und danach die 32-Bit Version, falls es nicht funktioniert hat.</p>
+                    <ul>
+                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.73-installer.msi">PuTty 64-Bit Version 0.73</a></li>
+                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.73-installer.msi">PuTty 32-Bit Version 0.73</a></li>
+                    </ul>                    
                 </article>
             </section>
             <!--<article id="access-mac">
@@ -56,7 +63,7 @@
             <article id="access-linux">
                 <h1>Zugang unter Linux</h1>
                 <p>Je nach Linux-Distribution ist der <span class="ssh">SSH</span> Client schon installiert. Aus diesem Grund kann man auch direkt mit der Verwendung von <span class="ssh">SSH</span> starten. Dazu muss zuerst ein Terminal geöffnet werden. Wer das Terminal noch nicht kennt: Das Terminal ist ein Eingabefenster, häufig mit dunklem Hintergrund und einem rechteckigen weißen cursor der zu Beginn oben links blinkt. Solche Terminals sind häufig in Hacker-Filmen zu sehen. Das Öffnen eines Terminals läuft bei jeder Linux-Distribution ein wenig anders ab. Beinahe immer gibt es im Anwendungsmenü (Windows-Nutzer nennen es <i>"Startmenü"</i>) ein Programm namens <b>Terminal</b> oder mit den Buchstaben <i>"term"</i> im Namen. Ab und zu funktioniert auch die Tastenkombination <code>STRG&nbsp;+&nbsp;ALT&nbsp;+&nbsp;T</code>.</p>
-                <p>In diesem Terminal wird nun die <span class="ssh">SSH</span> Verbindung zu einem der Computer im Poolraum aufgebaut. Dazu muss der nachfolgende Befehl in das Terminal eingegeben werden mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                <p>In diesem Terminal wird nun die <span class="ssh">SSH</span> Verbindung zu einem der Computer im Poolraum aufgebaut. Dazu muss der nachfolgende Befehl in das Terminal eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                 <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
                 <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
@@ -75,7 +82,7 @@
             </article>-->
         </main>
         <footer>
-            <p>&copy; <a href="https://www.spice-space.de/navigation/ueber-michi/">Michael Hohenstein</a>, 2020</p>
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>&nbsp;<a href="https://www.spice-space.de/navigation/ueber-michi/">Michael Hohenstein</a>, 2020</p>
             <p><a href="https://spice-space.de/inhalt/datenschutz/">Datenschutz</a> | <a href="https://spice-space.de/inhalt/impressum/">Impressum</a></p>
         </footer>
     </body>
