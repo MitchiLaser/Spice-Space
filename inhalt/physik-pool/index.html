@@ -22,9 +22,9 @@
                         <li><a href="#access-windows-10">Windows 10</a></li>
                         <li><a href="#access-windows-7-8">Windows 8 / Windows 7</a></li>
                     </ul>
-                    <li><a href="#access-mac">Zugang unter Macintosh</a></li>
+                    <!--<li><a href="#access-mac">Zugang unter Macintosh</a></li>-->
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
-                    <li><a href="#issues">Problembehandlung</a></li>
+                    <!--<li><a href="#issues">Problembehandlung</a></li>-->
                 </ul>
             </nav>
             <article id="about-ssh">
@@ -34,34 +34,43 @@
                 <h1>Zugang unter Windows</h1>
                 <article id="access-windows-10">
                     <h2>Windows 10</h2>
+                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>Power-Shell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü öffnen. Dort angenkommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                    <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
+                    <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+
+                    <p>Mit dem Programm <span class="ssh">SCP</span> können Dateien zwischen dem Poolraum und dem eigenen Rechner kopiert werden. Im Folgenden ist ein Beispiel zu sehen bei dem Benutzer <i>uxxxx</i> die Datei <b>Testda.tei</b> zu seinem Poolraum-Account kopiert, sodass diese dort in seinem Download-Ordner gespeichert wird:</p>
+                <p class="codeblock"><code>scp Testda.tei uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads</code></p>
+                <p>Um die Datei <b>Testda.tei</b> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
+                <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
+                <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird im Terminal durch den Aufruf von <code>pwd</code> ausgegeben.</p>
                 </article>
                 <article id="access-windows-7-8">
                     <h2>Windows 8  / Windows 7</h2>
                 </article>
             </section>
-            <article id="access-mac">
+            <!--<article id="access-mac">
                 <h1>Zugang unter Macintosh</h1>
-            </article>
+            </article>-->
             <article id="access-linux">
                 <h1>Zugang unter Linux</h1>
-                <p>Je nach Linux-Distribution ist der <span class="ssh">SSH</span> Client schon installiert. Aus diesem Grund kann man auch direkt mit der Verwendung von <span class="ssh">SSH</span> starten. Dazu muss zuerst ein Terminal geöffnet werden. Wer das Terminal noch nicht kennt: Das Terminal ist ein Eingabefenster, häufig mit dunklem Hintergrund und einem rechteckigen weißen cursor der zu Beginn oben links blinkt. Solche Terminals sind häufig in Hacker-Filmen zu sehen. Das Öffnen eines Terminals läuft bei jeder Linux-Distribution ein wenig anders ab. Beinahe immer gibt es im Anwendungsmenü (Windows-Nutzer nennen es <i>"Startmenü"</i>) ein Programm namens <i>"Terminal"</i> oder mit den Buchstaben <i>"term"</i> im Namen. Ab und zu funktioniert auch die Tastenkombination <code>STRG&nbsp;+&nbsp;ALT&nbsp;+&nbsp;T</code>.</p>
-                <p>In diesem Terminal wird nun die <span class="ssh">SSH</span> Verbindung zu einem der Computer im Poolraum aufgebaut. Dazu muss der nachfolgende Befehl in das Terminal eingegeben werden mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts eingegeben wird:</p>
+                <p>Je nach Linux-Distribution ist der <span class="ssh">SSH</span> Client schon installiert. Aus diesem Grund kann man auch direkt mit der Verwendung von <span class="ssh">SSH</span> starten. Dazu muss zuerst ein Terminal geöffnet werden. Wer das Terminal noch nicht kennt: Das Terminal ist ein Eingabefenster, häufig mit dunklem Hintergrund und einem rechteckigen weißen cursor der zu Beginn oben links blinkt. Solche Terminals sind häufig in Hacker-Filmen zu sehen. Das Öffnen eines Terminals läuft bei jeder Linux-Distribution ein wenig anders ab. Beinahe immer gibt es im Anwendungsmenü (Windows-Nutzer nennen es <i>"Startmenü"</i>) ein Programm namens <b>Terminal</b> oder mit den Buchstaben <i>"term"</i> im Namen. Ab und zu funktioniert auch die Tastenkombination <code>STRG&nbsp;+&nbsp;ALT&nbsp;+&nbsp;T</code>.</p>
+                <p>In diesem Terminal wird nun die <span class="ssh">SSH</span> Verbindung zu einem der Computer im Poolraum aufgebaut. Dazu muss der nachfolgende Befehl in das Terminal eingegeben werden mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                 <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
-                <p>Das wars auch schon was die Verbindung über SSH betrifft. Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+                <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
                 <h2>Dateiübertragung</h2>
                 <p>Mit <span class="ssh">SSH</span> können auch Dateien zwischen dem eigenen PC und dem Physik-Poolraum übertragen werden. Dazu kann das mitgelieferte Programm <span class="ssh">SCP</span> verwendet werden. <span class="ssh">SCP</span> wird genau so wie <span class="ssh">SSH</span> über ein Terminal bedient. Dabei kann <span class="ssh">SCP</span> in 2 Modi betrieben werden: Eine Datei wird vom Poolraum abgeholt und auf dem PC gespeichert oder eine Datei, die auf dem PC gespeichert ist, wird zum Poolraum kopiert.</p>
                 <p>Zu beiden Verfahren sei anzumerken, dass man den Poolraum-Rechner folgendermaßen anspricht, um mitzuteilen welche Datei abgeholt oder wo diese Datei gespeichert werden soll:</p>
                 <p class="codeblock"><code>uxxxx@fphctssh.physik.uni-karlsruhe.de:&lt;Speicherort&gt;</code></p>
-                <p>Im Folgenden ist ein Beispiel zu sehen bei dem Benutzer <i>Uxxxx</i> die Datei <i>Testda.tei</i> zu seinem Poolraum-Account kopiert, sodass diese dort in seinem Download-Ordner gespeichert wird:</p>
+                <p>Im Folgenden ist ein Beispiel zu sehen bei dem Benutzer <i>uxxxx</i> die Datei <b>Testda.tei</b> zu seinem Poolraum-Account kopiert, sodass diese dort in seinem Download-Ordner gespeichert wird:</p>
                 <p class="codeblock"><code>scp Testda.tei uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads</code></p>
-                <p>Um das Gegenteil durchzuführen, also die Datei <i>Testda.tei</i> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
+                <p>Um die Datei <b>Testda.tei</b> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
                 <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
                 <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird im Terminal durch den Aufruf von <code>pwd</code> ausgegeben.</p>
             </article>
-            <article id="issues">
+            <!--<article id="issues">
                 <h1>Problembehandlung</h1>
-            </article>
+            </article>-->
         </main>
         <footer>
             <p>&copy; <a href="https://www.spice-space.de/navigation/ueber-michi/">Michael Hohenstein</a>, 2020</p>
