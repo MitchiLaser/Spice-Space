@@ -4,13 +4,13 @@
         <title>Physik-Pool</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="initial-scale=2, maximum-scale=1">
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" sizes="any">
+        <link rel="icon" type="image/svg+xml" href="images/favicon.svg" sizes="any">
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="script.js"></script>
     </head>
     <body>
         <header>
-            <h1><span class="ssh">> SSH</span> Zugang zum Physik Pool</h1>
+            <h1><span class="ssh">> SSH</span> Zugang zum Physik-Poolraum</h1>
         </header>
         <main>
             <nav>
@@ -22,12 +22,13 @@
                         <li><a href="#access-windows-10">Windows 10</a></li>
                         <li><a href="#access-windows-7-8">Windows 8 / Windows 7</a></li>
                     </ul>
-                    <!--<li><a href="#access-mac">Zugang unter Macintosh</a></li>-->
+                    <li><a href="#access-mac">Zugang unter Macintosh</a></li>
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
-                    <!--<li><a href="#issues">Problembehandlung</a></li>-->
+                    <!--<li><a href="#file-transport-filezilla">Dateiübertragung mittels FileZilla</a></li>-->
+                    <li><a href="#issues">Problembehandlung</a></li>
                 </ul>
                 <p>Falls du dich mit <span class="ssh">SSH</span> schon auskennst und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
-                <p class="code"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
+                <p class="codeblock"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
             </nav>
             <article id="about-ssh">
                 <h1>Was ist <span class="ssh">SSH</span>?</h1>
@@ -38,36 +39,51 @@
                 <h1>Zugang unter Windows</h1>
                 <article id="access-windows-10">
                     <h2>Windows 10</h2>
-                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Dadurch muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Deshalb muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                     <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
-                    <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+                    <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Bei der allerersten <span class="ssh">SSH</span> Sitzung mit einem Server muss die Akzeptanz des Schlüssels des Servers durch eine Eingabe von <code>yes</code> bestätigt werden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
                     <p>Mit dem Programm <span class="ssh">SCP</span> können Dateien zwischen dem Poolraum und dem eigenen Rechner kopiert werden. Im Folgenden ist ein Beispiel zu sehen bei dem Benutzer <i>uxxxx</i> die Datei <b>Testda.tei</b> zu seinem Poolraum-Account kopiert, sodass diese dort in seinem Download-Ordner gespeichert wird:</p>
+                    <p class="codeblock"><code>scp Testda.tei uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads</code></p>
+                    <p>Um die Datei <b>Testda.tei</b> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
+                    <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
+                    <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird in der PowerShell durch den Aufruf von <code>pwd</code> und in der Eingabeaufforderung durch den Aufruf von <code>cd</code> ausgegeben.</p>
+                </article>
+                <article id="access-windows-7-8">
+                    <h2>Windows 8  / Windows 7</h2>
+                    <p>Bei Windows 8 oder Windows 7 wird leider kein <span class="ssh">SSH</span> Client mitgeliefert. Dieser muss nun nachinstalliert werden. Hierfür eignet sich das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> (Das ist natürlich nur eine Empfehlung des Verfassers dieser Anleitung. Man kann auch jeden beliebigen anderen <span class="ssh">SSH</span> Client verwenden). Das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> kann man unter den folgenden Links für 32-Bit und 64-Bit Rechner herunterladen. Wer nicht weiß, ob er einen 32- oder 64-Bit Rechner hat, probiert zuerst einfach mal die 64-Bit version aus und danach die 32-Bit Version, falls es nicht funktioniert hat.</p>
+                    <ul>
+                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.73-installer.msi">PuTTY 64-Bit Version 0.73</a></li>
+                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.73-installer.msi">PuTTY 32-Bit Version 0.73</a></li>
+                    </ul>
+                    <p>Nach der Installation öffnet sich ein Fenster das wiefolgt aussieht:</p>
+                    <p><img alt="putty-startfenster" src="images/putty-startfenster.png"></p>
+                    <p>Dies ist das Startfenster von PuTTY. In dem Bild wurde unter <b>Host Name (or IP address)</b> schon die Adresse des Physik-Poolraums eingetragen (gelb hinterlegt). Diese lautet:</p>
+                    <p class="codeblock"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
+                    <p>Durch einen klick auf <b>Open</b> wird eine <span class="ssh">SSH</span> Sitzung gestartet. Beim ersten Starten einer solchen Sitzung kommt es vor, dass folgende Warnmeldung erscheint:</p>
+                    <p><img alt="putty-warnmeldung" src="images/putty-warnmeldung.png"></p>
+                    <p>Diese Warmeldung besagt, dass bisher noch kein Schlüsselaustausch mit dem Server stattgefunden hat, der garantiert, dass der Schlüssel auch wirklich vom Server ist. Diese Warnmeldung warnt vor einer möglichen <a href="https://www.ssh.com/attack/man-in-the-middle">Man in the middle Attacke</a> warnen. Da ei solches Szenario aber unwahrscheinlich ist und außerdem die <span class="ssh">SSH</span> Verbindung in Zukunft häufiger verwendet wird, empfiehlt es sich, auf <b>Ja</b> zu klicken. Dies führt dazu, dass der Schlüssel des Servers auf dem PC hinterlegt wird um vor zukünftigen <a href="https://www.ssh.com/attack/man-in-the-middle">Man in the middle Attacken</a> vorzubeugen. PuTTY öffnen nun ein Terminal in dem die <span class="ssh">SSH</span> Sitzung läuft. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+                    <!-- hier weitermachen -->
+                </article>
+            </section>
+            <article id="access-mac">
+                <h1>Zugang unter Macintosh</h1>
+                <p>Bei Mac-OS wird ein <span class="ssh">SSH</span> Client mitgeliefert. Deshalb muss nichts weiter getan werden als das Programm <b>Terminal</b> zu öffnen. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
+                <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Bei der allerersten <span class="ssh">SSH</span> Sitzung mit einem Server muss die Akzeptanz des Schlüssels des Servers durch eine Eingabe von <code>yes</code> bestätigt werden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+
+                <p>Mit dem Programm <span class="ssh">SCP</span> können Dateien zwischen dem Poolraum und dem eigenen Rechner kopiert werden. Im Folgenden ist ein Beispiel zu sehen bei dem Benutzer <i>uxxxx</i> die Datei <b>Testda.tei</b> zu seinem Poolraum-Account kopiert, sodass diese dort in seinem Download-Ordner gespeichert wird:</p>
                 <p class="codeblock"><code>scp Testda.tei uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads</code></p>
                 <p>Um die Datei <b>Testda.tei</b> aus dem Download-Ordner vom Physik-Pool abzuholen, werden die Argumente beim Aufruf von <span class="ssh">SCP</span> einfach vertauscht:</p>
                 <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
                 <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird in der PowerShell durch den Aufruf von <code>pwd</code> und in der Eingabeaufforderung durch den Aufruf von <code>cd</code> ausgegeben.</p>
-                </article>
-                <article id="access-windows-7-8">
-                    <h2>Windows 8  / Windows 7</h2>
-                    <p>Bei Windows 8 oder Windows 7 wird leider kein <span class="ssh">SSH</span> Client mitgeliefert. Dieser muss nun nachinstalliert werden. Hierfür eignet sich das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTty</a> (Das ist natürlich nur eine Empfehlung des Verfassers dieser Anleitung. Man kann auch jeden beliebigen anderen <span class="ssh">SSH</span> Client verwenden). Das Programm <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTty</a> kann man unter den folgenden Links für 32-Bit und 64-Bit Rechner herunterladen. Wer nicht weiß, ob er einen 32- oder 64-Bit Rechner hat, probiert zuerst einfach mal die 64-Bit version aus und danach die 32-Bit Version, falls es nicht funktioniert hat.</p>
-                    <ul>
-                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.73-installer.msi">PuTty 64-Bit Version 0.73</a></li>
-                        <li><a href="https://the.earth.li/~sgtatham/putty/latest/w32/putty-0.73-installer.msi">PuTty 32-Bit Version 0.73</a></li>
-                    </ul>
-                    <p>Nach der Installation öffnet sich ein Fenster das wiefolgt aussieht:</p>
-                    
-                </article>
-            </section>
-            <!--<article id="access-mac">
-                <h1>Zugang unter Macintosh</h1>
-            </article>-->
+            </article>
             <article id="access-linux">
                 <h1>Zugang unter Linux</h1>
-                <p>Je nach Linux-Distribution ist der <span class="ssh">SSH</span> Client schon installiert. Aus diesem Grund kann man auch direkt mit der Verwendung von <span class="ssh">SSH</span> starten. Dazu muss zuerst ein Terminal geöffnet werden. Wer das Terminal noch nicht kennt: Das Terminal ist ein Eingabefenster, häufig mit dunklem Hintergrund und einem rechteckigen weißen cursor der zu Beginn oben links blinkt. Solche Terminals sind häufig in Hacker-Filmen zu sehen. Das Öffnen eines Terminals läuft bei jeder Linux-Distribution ein wenig anders ab. Beinahe immer gibt es im Anwendungsmenü (Windows-Nutzer nennen es <i>"Startmenü"</i>) ein Programm namens <b>Terminal</b> oder mit den Buchstaben <i>"term"</i> im Namen. Ab und zu funktioniert auch die Tastenkombination <code>STRG&nbsp;+&nbsp;ALT&nbsp;+&nbsp;T</code>.</p>
+                <p>Bei den meisten Linux-Distributionen ist der <span class="ssh">SSH</span> Client schon installiert. Aus diesem Grund kann man auch direkt mit der Verwendung von <span class="ssh">SSH</span> starten. Dazu muss zuerst ein Terminal geöffnet werden. Wer das Terminal noch nicht kennt: Das Terminal ist ein Eingabefenster, häufig mit dunklem Hintergrund und einem rechteckigen weißen cursor der zu Beginn oben links blinkt. Solche Terminals sind häufig in Hacker-Filmen zu sehen. Das Öffnen eines Terminals läuft bei jeder Linux-Distribution ein wenig anders ab. Beinahe immer gibt es im Anwendungsmenü (Windows-Nutzer nennen es <i>"Startmenü"</i>) ein Programm namens <b>Terminal</b> oder mit den Buchstaben <i>"term"</i> im Namen. Ab und zu funktioniert auch die Tastenkombination <code>STRG&nbsp;+&nbsp;ALT&nbsp;+&nbsp;T</code>.</p>
                 <p>In diesem Terminal wird nun die <span class="ssh">SSH</span> Verbindung zu einem der Computer im Poolraum aufgebaut. Dazu muss der nachfolgende Befehl in das Terminal eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                 <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.uni-karlsruhe.de</code></p>
-                <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
+                <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Bei der allerersten <span class="ssh">SSH</span> Sitzung mit einem Server muss die Akzeptanz des Schlüssels des Servers durch eine Eingabe von <code>yes</code> bestätigt werden.  Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
 
                 <h2>Dateiübertragung</h2>
                 <p>Mit <span class="ssh">SSH</span> können auch Dateien zwischen dem eigenen PC und dem Physik-Poolraum übertragen werden. Dazu kann das mitgelieferte Programm <span class="ssh">SCP</span> verwendet werden. <span class="ssh">SCP</span> wird genau so wie <span class="ssh">SSH</span> über ein Terminal bedient. Dabei kann <span class="ssh">SCP</span> in 2 Modi betrieben werden: Eine Datei wird vom Poolraum abgeholt und auf dem PC gespeichert oder eine Datei, die auf dem PC gespeichert ist, wird zum Poolraum kopiert.</p>
@@ -79,9 +95,11 @@
                 <p class="codeblock"><code>scp uxxxx@fphctssh.physik.uni-karlsruhe.de:Downloads/Testda.tei .</code></p>
                 <p>Dabei sei anzumerken, dass es sich bei <code>.</code> um das aktuelle Verzeichnis handelt in dem sich das Terminal zum Zeitpunkt des Aufrufs von <span class="ssh">SCP</span> befindet. Das Verzeichnis wird im Terminal durch den Aufruf von <code>pwd</code> ausgegeben.</p>
             </article>
-            <!--<article id="issues">
+            <article id="issues">
                 <h1>Problembehandlung</h1>
-            </article>-->
+                <h2>Passwort zu oft falsch eingegeben</h2>
+                <p>Bei einem Verbindungsversuch besteht drei mal die Möglichkeit, das Passwort einzugeben. Wurde das Password auch beim dritten mal nicht korrekt eingegeben so bleibt diesem Rechner der Zugang zum Poolraum verwehrt. Ein erneuter Anmeldeversuch ist erst nach 24h möglich.</p>
+            </article>
         </main>
         <footer>
             <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>&nbsp;<a href="https://www.spice-space.de/navigation/ueber-michi/">Michael Hohenstein</a>, 2020</p>
