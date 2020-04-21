@@ -13,6 +13,10 @@
             <h1><span class="ssh">> SSH</span> Zugang zum Physik-Poolraum</h1>
         </header>
         <main>
+            <section class="banner-warning">
+                <h1>Hinweis zur aktuelle Situation</h1>
+                <p>Aufgrund der Verordnungen des Landes Baden-Württemberg zur Eindämmung der Pandemie durch das SARS-COV-2 Virus ist der Poolraum leider nicht zugänglich und bleibt bis auf weiteres geschlossen. Weiterhin wurden die Login-Daten zu denen für die KIT-Dienste geändert.</p>
+            </section>
             <nav>
                 <h1>Inhaltsverzeichnis</h1>
                 <ul>
@@ -50,7 +54,22 @@
                 </section>
 
                 <section>
-
+                    <h2>Dateiübertragung mittels FileZilla</h2>
+                    <p>Weiterhin lässt sich die Dateiübertragung auch grafisch über das Programm <a href="https://filezilla-project.org/">FileZilla</a> erledigen. Dieses lässt sich über den folgenden Link für 32-Bit und 64-Bit Rechner herunterladen. Wer nicht weiß, ob er einen 32- oder 64-Bit Rechner hat, probiert zuerst einfach mal die 64-Bit version aus und danach die 32-Bit Version, falls es nicht funktioniert hat.</p>
+                    <ul>
+                        <li><a href="https://filezilla-project.org/download.php?platform=win64">FileZilla 64-Bit</a></li>
+                        <li><a href="https://filezilla-project.org/download.php?platform=win32">FileZilla 32-Bit</a></li>
+                    </ul>
+                    <p class="banner-warning">Warnung: Während der Installation kann es vorkommen dass die Installation weiterer zusätzlicher Programme angeboten wird. Aus diesem Grund ist während dem Installationsprozess Vorsicht geboten. Bitte bei jedem Schritt genau durchlesen, was dabei gefragt, wird um sich nicht aus versehen unerwünschte Software einzufangen.</p>
+                    <p><img alt="filezilla-startfenster" src="images/filezilla-fenster-win.png"></p>
+                    <p>Nach der installation und dem Starten ist das Programmfenster von <b>FileZilla</b> zu sehen. In dem oben &#x2b06 sichtbaren Bild wurden schon die notwendigen Login-Daten eingetragen (gelb hinterlegt). Diese lauten:</p>
+                    <ul>
+                        <li>Server: <code>fphctssh.physik.uni-karlsruhe.de</code></li>
+                        <li>Benutzername: <code>uxxxx</code></li>
+                        <li>Passwort: <code>**********</code></li>
+                        <li>Port: <code>22</code></li>
+                    </ul>
+                    <p>Nach Eingeben der Login-Daten &#x2b06 Daten beginnt <b>FileZilla</b> damit, eine <span class="ssh">SFTP</span> Verbindung zum Physik-Poolraum herzustellen. In dem Programm sind nun zwei Dateimanager zu sehen: die linke Spalte zeigt die Dateien auf dem eigenen Computer an und die Rechte Spalte die Dateien die auf dem Poolraum-Account hinterlegt sind. Dateien oder Ordner können darin ausgewählt und zwischen beide Rechnern hin und her kopiert werden.</p>
                 </section>
             </article>
             <article id="access-windows-7-8">
@@ -71,7 +90,8 @@
                 </section>
 
                 <section>
-
+                    <h2>Dateiübertragung mittels FileZilla</h2>
+                    <p>Mit dem Programm <b>FileZilla</b> wird eine grafische Möglichkeit angeboten um Dateien zwischen dem eigenen PC und dem Physik-Pool auszutauschen. Die Installation und Verwendung von <b>FileZilla</b> wird im Abschnitt zu <b>Windows 10</b> erklärt.</p>
                 </section>
             </article>
             </section>
@@ -130,7 +150,7 @@
                         <li>Diverse: <code>sudo snap install filezilla</code></li>
                     </ul>
                     <p>Nachdem <b>FileZilla</b> installiert und gestartet wurde sollte folgendes Programmfenster zu sehen sein (eventuell auch im Dark-Mode, je nach Linux Distribution):</p>
-                    <p><img alt="filezilla-window" src="images/filezilla-startfenster.png"></p>
+                    <p><img alt="filezilla-window" src="images/filezilla-startfenster-lin.png"></p>
                     <p>Dies ist das Programmfenster von <b>FileZilla</b>. In dem Bild wurden schon die notwendigen Login-Daten eingetragen (gelb hinterlegt). Diese lauten:</p>
                     <ul>
                         <li>Server: <code>fphctssh.physik.uni-karlsruhe.de</code></li>
@@ -139,7 +159,7 @@
                         <li>Port: <code>22</code></li>
                     </ul>
                     <p>Nach Eingeben der obenstehenden &#x2b06 Daten beginnt <b>FileZilla</b> damit, eine <span class="ssh">SFTP</span> Verbindung zum Physik-Poolraum herzustellen. Bei der ersten Anmeldung kommt es vor, dass folgende Warnmeldung angezeigt wird:</p>
-                    <p><img alt="filezilla-warnung" src="images/filezilla-warnung.png"></p>
+                    <p><img alt="filezilla-warnung" src="images/filezilla-warnung-lin.png"></p>
                     <p>Diese Warnmeldung besagt, dass bisher noch kein Schlüssel von diesem Server gespeichert wurde. Da die Verbindung zum Datenaustausch vorraussichtlich häufiger verwendet wird, empfiehlt es sich, diesen Schlüssel zu speichern.</p>
                     <p>In dem Programm <b>FileZilla</b> sind nun zwei Dateimanager zu sehen: die linke Spalte zeigt die Dateien auf dem eigenen Computer an und die Rechte Spalte die Dateien die auf dem Poolraum-Account hinterlegt sind. Dateien oder Ordner können darin ausgewählt und zwischen beide Rechnern hin und her kopiert werden.</p>
                 </section>
