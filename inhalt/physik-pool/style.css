@@ -15,6 +15,7 @@ a:visited{
     text-decoration: inherit;
     color: inherit;
     cursor: pointer;
+    text-decoration-color: inherit;
 }
 a:hover,
 a:active{
@@ -29,6 +30,7 @@ p{
 code{
     font-family: monospace;
     color: var(--code-color);
+    text-decoration-color: var(--code-color);
 }
 
 /* document structure */
@@ -155,6 +157,11 @@ main ul a,
 main ul a:link,
 main ul a:visited{
     color: inherit;
+}
+
+main img{
+    max-width: 80vw;
+    max-height: 50vh;
 }
 
 /* break-point for smartphones */
