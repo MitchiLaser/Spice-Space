@@ -31,6 +31,7 @@ code{
     font-family: monospace;
     color: var(--code-color);
     text-decoration-color: var(--code-color);
+    font-size: inherit;
 }
 
 /* document structure */
