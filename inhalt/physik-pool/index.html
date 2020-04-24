@@ -26,6 +26,7 @@
                     <li><a href="#access-mac">Zugang unter Macintosh</a></li>
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
                     <li><a href="#issues">Problembehandlung</a></li>
+                    <li><a href="#print">Drucken via Fernzugriff</a></li>
                 </ul>
                 <p>Falls du dich mit <span class="ssh">SSH</span> schon auskennst und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
                 <p class="codeblock"><code>fphctssh.physik.uni-karlsruhe.de</code></p>
@@ -182,6 +183,19 @@
                 <h1>Problembehandlung</h1>
                 <h2>Passwort zu oft falsch eingegeben</h2>
                 <p>Bei einem Verbindungsversuch besteht drei mal die Möglichkeit, das Passwort einzugeben. Wurde das Password auch beim dritten mal nicht korrekt eingegeben so bleibt diesem Rechner der Zugang zum Poolraum verwehrt. Ein erneuter Anmeldeversuch ist erst nach 24h möglich.</p>
+            </article>
+            <article id="print">
+                <h1>Drucken via Fernzugriff</h1>
+                <p>Nachdem eine Datei mittels <span class="ssh">SCP</span> zu dem Benutzerkonto im Physik-Poolraum kopiert wurde, kann diese nach dem Aufbau einer <span class="ssh">SSH</span> Verbindung über die Kommandozeile ausgedruckt werden. Der Befehl dazu lautet:</p>
+                <p class="codeblock"><code>lp -d &lt;Drucker&gt; &lt;Datei&gt;</code></p>
+                <p>Für den Parameter <code>Drucker</code> stehen folgende Geräte zur Auswahl:</p>
+                <ul>
+                    <li>lp1</li>
+                    <li>lp2</li>
+                    <li>lpcol</li>
+                </ul>
+                <p>Zur Verständnis wird hier noch einmal ein Beispiel aufgeführt bei dem aus dem Drucker <b>lp1</b> (neben der Eingangstür) eine Datei ausgedruckt wird:</p>
+                <p class="codeblock"><code>lp -d lp1 /pfad/zur/Datei.pdf</code></p>
             </article>
         </main>
         <footer>
