@@ -258,7 +258,7 @@ main.Startseite > section > a{
 main.Startseite > section > a > img{
     align-self: flex-end;
     filter: opacity(.65);
-    scale: 2.5;
+    transform: scale(2.5);
     padding: 0 2vw 1vw 0;
 }
 
