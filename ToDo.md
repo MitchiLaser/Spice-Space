@@ -8,7 +8,6 @@
     - Bild vom Controller
     - Beschreibung der Konfiguration
 - Tic-Tac-Toe Platine
-- Instagram, Twitter und andere Social-Media Profile Bilder hinzufügen
 - Physik-GFS mit MathJax darstellen lassen
 - Elysia-Artikel auf Webseite?
 - Favicon für die Mathe-Slideshow (Physik dito) und für den Sudoku Lösungsfinder.
