@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Spice-Space</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=2, maximum-scale=1">
+        <link rel="icon" type="image/svg+xml" href="../../favicon.svg" sizes="any">
+        <link rel="stylesheet" type="text/css" href="../../style.css" />
+        <noscript>
+            <link rel="stylesheet" type="text/css" href="../../noscript.css" />
+        </noscript>
+    </head>
+    <body>
+        <header>
+            <a href="../../">Spice-Space</a>
+        </header>
+        <main>
+            <section class="banner">
+                Automatische Pflanzenbewässerung
+            </section>
+            <section>
+                <h1>Beschreibung</h1>
+                <p>Bevor ich mal für ein paar Tage weg fahre, sei es in den Urlaub oder anderweitig, muss ich mich vorher immer um jemanden kümmern, der meine Zimmerpflanze in dieser Zeit betreuen kann. Leider ist sie mittlerweile schon sehr groß geworden, weswegen ich sie nicht einfach mal kurz weg bringen kann. Um ehrlich zu sein, passt sie nicht mehr durch die Tür. Deswegen musst eine Lösung für dieses Problem her: ein automatisches Bewässerungssystem.</p>
+                <p>Also ran an ide Arbeit: Alles, was wir abgesehen von ein paar elektr(on)ischen Standardbauteilen und einem Microcontroller brauchen, sind: Eine Pumpe, ein Wasserkanister und ein Stück schlauch. Die Elektronik wird unterwegs erklärt.</p>
+                <p>Die Idee hinter diesem System sieht folgendermaßen aus: Neben dem Blumentopf steht ein Wasserkanister (wenn möglich bitte voll), in den eine kleien Pumpe eingelassen ist. Diese Pumpe kann von einem Microcontroller ein- und ausgeschaltet werden, je nachdem welche Feuchtigkeit ein Feuchtigkeitssensor im Topf dem Microcontroller übermittelt wird. Selbst der Feuchtigkeitssensor wurde in diesem Aufbau selbst gebaut, da meine nächste Reise schon feststand und ich keine Zeit mehr hatte, um eine zu bestellen.<p>
+            </section>
+            <section>
+                <h1>Die Schaltung</h1>
+                <p>Der genamte Aufbau der Schaltung besteht aus Einzelteilen, die hier erläutert werden:</p>
+                <ul>
+                    <li><b>Der Microcontroller</b>: Um die Werte des Helligkeitssensors auslesen und daraufhin die Pumpe ein- und ausschalten zu können, bildet ein Attiny13A das Herzstück dieser Schaltung. Ein einfaches Programm, welches in dem unten &dArr; verlinkten Github-Repository im Ordner "firmware" zu finden ist, hält das System am Laufen. Um das Programm auf den Controller zu bekommen, wurde in der Arduino IDE der <a style="filter:opacity(0.7)" href="https://github.com/MCUdude/MicroCore">MicroCore von MCUdude</a> verwendet.</li>
+                    <li>Zu jedem Microcontroller-Setup gehört meiner Meinung nach immer eine gute <b>Reset-Schaltung</b>. Auch, wenn sie in diesem Anwendungsfall übertrieben sein mag, schadet sie nie.</li>
+                    <li>Der <b>Sensor zur Messung der Bodenfeuchtigkeit</b> wurde hier komplett selber gebaut. Dabei befindet sich der Elektronik-Teil auf der Platine, währen an die dafür vorgesehenen Schraubklemmen zwei Kabel angeschlossen werden, die mit zwei Metall-Stücken in der Erde verbunden sind. Theoretisch reicht es aus, dafür Schrauben zu verwenden, die ein bis drei Zentimeter voneinander entfernt in de Erde gesteckt werden. Ich für meinen Teil habe mir dafür zwei längliche Inseln aus Lötzinn auf einer Lochraster-Platine aufgetragen und diese so abgeschnitten, dass es auch halbwegs wie einer der Sensoren aussieht, die man für diesen Zweck kaufen kann.</li>
+                    <li>Mit einem <b>Potentiometer</b> kann der Schwellwert für die Feuchtigkeit festgelegt werden, ab der die Pumpe anfangen soll, zu pumpen.</li>
+                    <li>Ein weiterer Transistor steuert die Pumpe an. Damit man den Schwellwert am Potentiometer auch trocken einstellen kann, wurde auch eine LED installiert, die leuchtet, wenn die Pumpe in Gang gesetzt wird. Zufälligerweise hatte ich noch ein paar kleine Pumpen herum liegen (ca. Daumengröße), die mit 5V und 200mA betrieben werden.</li>
+                </ul>
+                <p>Der daraus resultierende Schaltplan und der selbstegbastelte Feuchtigkeitssensor sind in den nächsten Bildern zu sehen. Weiterhin wurde noch eine Platine designt, damit das ganze auch von einem PCB-Hersteller bestellt werden kann. Leider fehlte mir die Zeit, bis die Platine geliefert wird, also hab ich das ganze auf einer Lochraster-Platine zusammengebaut.</p>
+            </section>
+            <article class="images">
+                <h1>Bilder</h1>
+                <section>
+                    <img alt="Schaltplan" src="../../media/bewaesserungssystem/Schaltplan.png">
+                    <img alt="PCB-Design" src="../../media/bewaesserungssystem/Board-Design.png">
+                </section>
+                <section>
+                    <img alt="PCB-Design-3D" src="../../media/bewaesserungssystem/Board-Design-3d.png">
+                    <img alt="PCB-Design-3D" src="../../media/bewaesserungssystem/Platine.png">
+                </section>
+                <section>
+                    <img alt="Schaltplan" src="../../media/bewaesserungssystem/Sensor.png">
+                    <img alt="PCB-Design" src="../../media/bewaesserungssystem/Aufbau.png">
+                </section>
+            </article>
+            <section>
+                In dem unten verlinkten Github-Repository befindet sich die Firmware für den Attiny13A. Außerdem sind dort auch der Schaltplan und die Platine zu finden, die mit dem Programm <a style="filter: opacity(0.7);" href="https://www.kicad.org/">kiCad</a> erstellt wurden. Zu guter Letzt hab ich auch noch das 3D-Modell für das 3d gedruckte Gehäuse dort hinzugefügt. 
+            </section>
+            <article>
+                <a href="https://github.com/MitchiLaser/Plant" target="_blank">
+                    <h1>Github-Repository für dieses Projekt</h1>
+                </a>
+            </article>
+        </main>
+        <footer>
+            <ul>
+                <li>&copy; <a>Michael Hohenstein</a>, 2020</li>
+                <li><a href="../../inhalt/impressum/">Impressum</a> | <a href="../../inhalt/datenschutz/"> Datenschutz</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

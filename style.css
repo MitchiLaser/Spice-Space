@@ -134,16 +134,20 @@ article p.keywords{
 }article p.keywords::before{
     content: "# ";
 }
+/* the ancient buggy part of the image galery*/
 article.images{
     border-radius: 0;
 }
 article.images section{
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin: 0;
+    padding: 0;
 }
 article.images section img{
     flex: 1 1 auto;
+    height: auto;
     border-radius: 0;
 }
 article.images section:first-of-type img:first-child{
@@ -158,6 +162,9 @@ article.images section:last-of-type img:first-child{
 article.images section:last-of-type img:last-child{
     border-bottom-right-radius: 5px;
 }
+/* todo: which should be replaced with something better*/
+
+/*until here the usual css continues*/
 .notification{
     color: #EF5350;
 }
