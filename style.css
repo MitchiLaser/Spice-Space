@@ -140,14 +140,19 @@ article.images{
 }
 article.images section{
     width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     margin: 0;
     padding: 0;
 }
 article.images section img{
     flex: 1 1 auto;
     height: auto;
+    width: auto;
+    vertical-align: bottom;
+    object-fit: cover;
     border-radius: 0;
 }
 article.images section:first-of-type img:first-child{
@@ -163,7 +168,34 @@ article.images section:last-of-type img:last-child{
     border-bottom-right-radius: 5px;
 }
 /* todo: which should be replaced with something better*/
-
+ul.galery{
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+ul.galery li{
+    height: 30vh;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+ul.galery li:last-child{
+    flex-grow: 10;
+}
+ul.galery img{
+    margin: 0;
+    padding: 0;
+    border: none;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+    flex: 1 1 auto;
+}
 /*until here the usual css continues*/
 .notification{
     color: #EF5350;
