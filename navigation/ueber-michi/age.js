@@ -3,20 +3,20 @@
 // enter the date of your birthday here:
 var birthday = "2000-04-13";  //YYYY-MM-DD
 
-// if you wanna print you birthday on the website using this fancy JavaScript plugin then
-// enter the id of the HTML object here; otherweise leave blank.
+// if you wanna print your birthday on the website using this fancy JavaScript plugin then
+// enter the id of the HTML object here; otherwise leave the string blank.
 var bd_out = "";
 
 // if you didn't leave the previous parameter blank you can specify the output format.
-// p. ex.: "W, D.M.Y" -> Thursday, 15.04.2000
+// p. ex.: "W, D.M.Y" -> Thursday, 15.06.1993
 var bd_out_form = "W, D.M.Y";
 
 // if you wanna use the names of the days of the weekend in the parameter above
 // then enter the names here from sunday to saturday:
 var week = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
-// if you wanna print yout age in years and days
-// enter the id of the HTML object here; otherweise leave blank.
+// if you wanna print your age in years and days
+// enter the id of the HTML object here; otherwise leave the string blank.
 var age_out = "age_out";
 
 // if you wanna use the names of the days of the weekend in the parameter above
@@ -24,9 +24,9 @@ var age_out = "age_out";
 var date_words = ["Jahr", "Jahre", "Tag", "Tage"];
 
 
-// -- The program itself --
+// -- Configuration end --
 
-Number.prototype.enlarge = function(length){ // add '0's in front of numbers until thex reach a certain length
+Number.prototype.enlarge = function(length){ // add '0's in front of numbers until they reach a certain length
     var Return = this.constructor == String() ? this : String(this);
     while(Return.length < length){
         Return = 0 + Return;
@@ -66,7 +66,7 @@ Date.prototype.calcDiffToday = function (){
     if(this.leapYear() && this.getMonth() < 3){
         diff--;
     }
-    // remove all the days from leap years betweem you birth year and the current year
+    // remove all the days from leap years between you birth year and the current year
     for(var i = this.getFullYear() + 1; i < now.getFullYear(); i++){
         t_date = new Date();
         t_date.setFullYear(i);
@@ -82,7 +82,6 @@ Date.prototype.calcDiffToday = function (){
     var diff_d = diff % 365;
     var diff_y = (diff - diff_d) / 365;
 
-    //alert(diff);
     return [diff_y, diff_d];
 }
 
@@ -95,7 +94,7 @@ function print_age(age){
     Return += " ";
 
     Return += age[1] + " ";
-    Return += (age[1] > 0) ? date_words[3]:date_words[2];
+    Return += (age[1] == 1) ? date_words[2]:date_words[3];
 
     return Return;
 }
