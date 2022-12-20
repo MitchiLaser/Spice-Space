@@ -13,11 +13,13 @@
             <h1><span class="ssh">> SSH</span> Zugang zum Physik-Poolraum</h1>
         </header>
         <main>
-            <section>
+	        <section>
                 <h1>Sprechzeiten Poolraum-HiWi:</h1>
-		<p><b>Montag und Dienstag:</b> 11:30 bis 13:00 Uhr <br>
-		<b>Freitag:</b> 13:00 bis 14:00 Uhr</p>
-		<p>E-Mail Kontakt: <a href="mailto:ustlg@student.kit.edu">ustlg@student.kit.edu</a></p>
+		        <p><b>Montag und Dienstag:</b> 11:30 bis 13:00 Uhr <br>
+		        <b>Freitag:</b> 13:00 bis 14:00 Uhr</p>
+		        <p>E-Mail Kontakt: <a href="mailto:ustlg@student.kit.edu">ustlg@student.kit.edu</a></p>
+                <p>Falls du dich mit <span class="ssh">SSH</span> schon auskennst und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
+                <p class="codeblock"><code>fphctssh.physik.kit.edu</code></p>
             </section>
             <nav>
                 <h1>Inhaltsverzeichnis</h1>
@@ -29,9 +31,11 @@
                     <li><a href="#access-linux">Zugang unter Linux</a></li>
                     <li><a href="#issues">Problembehandlung</a></li>
                     <li><a href="#print">Drucken via Fernzugriff</a></li>
+                    <li><a href="#key-introduction">Was ist ein <span class="SSH">SSH</span> Schlüssel?</a></li>
+                    <li><a href="#generate-key"><span class="ssh">SSH</span> Schlüssel erzeugen</a></li>
+                    <li><a href="#key-login">Anmeldung ohne Passwort-Eingabe</a></li>
+                    <li><a href="#config">Die <span class="ssh">SSH</span> Konfigurations-Datei</a></li>
                 </ul>
-                <p>Falls du dich mit <span class="ssh">SSH</span> schon auskennst und nur auf der Suche nach der Adresse vom Physik-Poolraum bist, möchte ich dich nicht weiter auf dieser Webseite festhalten. Hier, bitteschön:</p>
-                <p class="codeblock"><code>fphctssh.physik.kit.edu</code></p>
             </nav>
             <article id="about-ssh">
                 <h1>Was ist <span class="ssh">SSH</span>?</h1>
@@ -198,6 +202,41 @@
                 </ul>
                 <p>Zur Verständnis wird hier noch einmal ein Beispiel aufgeführt bei dem aus dem Drucker <b>lp1</b> (neben der Eingangstür) eine Datei ausgedruckt wird:</p>
                 <p class="codeblock"><code>lp -d lp1 /pfad/zur/Datei.pdf</code></p>
+            </article>
+            <article id="key-introduction">
+                <h1>Was ist ein <span class="ssh">SSH</span> Schlüssel?</h1>
+                <p>Eine <span class="ssh">SSH</span> Verbindung findet nur verschlüsselt statt. Wenn dies nicht der Fall wäre, könnten die Netzwerk-Packete zwischen den zwei mit <span class="ssh">SSH</span> kommunizierenden Rechnern mitgehört und der darin übertragene Inhalt ohne jegliche Schwierigkeit ausgelesen werden. Da sich darin Passwörter oder der Inhalt von Benutzer-Dateien befinden, die der Privatsphäre des Benutzers unterliegen, ist es wichtig, dass die Verbindung verschlüsselt wird.</p>
+                <p><span class="ssh">SSH</span> verwendet eine <a href="https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem">Asymmetrische Verschlüsselung</a>, bei der der Schlüssel aus einem privaten Schlüssel (private key) und einem öffentlichen Schlüssel (public key) besteht. Mit dem öffentlichen Schlüssel können Daten nur verschlüsselt werden aber nicht entschlüsselt. Erst mit dem privaten Schlüssel ist es möglich, die verschlüsselten Daten wieder zu entschlüsseln. Der öffentliche Schlüssel kann also bedenkenlos veröffentlicht werden während der private Schlüssel vom Besitzer nur mit Vorsicht weitergegeben werden darf.</p>
+                <p>Da es zum öffentlichen Schlüssel nur einen zugehörigen privaten Schlüssel gibt, kann man diesen auch verwenden, um sich bei einem anderen Rechner zu authentifizieren: Anstelle der Eingabe eines Passworts kann stattdessen beim Aufbauen der Verbindung überprüft werden, ob eine mit einem vorher weitergereichten öffentlichen Schlüssel verschlüsselte Nachricht auf der anderen Seite entschlüsselt werden kann. Im Vergleich zur Eingabe eines Passworts ist dies eine einfachere und sicherere Methode um sich auf einem entfernten Rechner anzumelden.</p>
+            </article>
+            <article id="generate-key">
+                <h1><span class="ssh">ssh</span> Schlüssel erzeugen</h1>
+                <p>Für das Erzeugen eines <span class="ssh">SSH</span> Schlüssels liefert das Programm-Packet <span class="ssh">SSH</span> das Programm <code>ssh-keygen</code> mit. Über den folgenden Aufruf kann ein neues SSH-Schlüsselpaar erzeugt werden:</p>
+                <p class="codeblock"><code>ssh-keygen -t rsa -b 4096 -C uxxxx@student.kit.edu</code></p>
+                <p>Nach dem Aufruf wird abgefragt, wo der Schlüssel gespeichert werden soll und ob dieser Schlüssel mit einem Passwort geschützt werden soll. Wenn sattdessen nichts eingegeben wird und einfach mit der Enter-Taste bestätigt wird, werden die Default-Werte verwendet: Kein Passwort und <code>~/.ssh/id_rsa</code> als Speicherort für den privaten Schlüssel sowie <code>~/.ssh/id_rsa.pub</code> für den öffentlichen Schlüssel. Dabei ist das Tilde-Symbol <code>~</code> ein Synonym für das Home-Verzeichnis des Benutzers, unter Linux und Mac über selbiges Zeichen (z.B. <code>cd ~</code>) erreichbar und unter Windows in <code>c:\Users\...</code> . Dieses Symbol wird auf der ganzen Webseite einheitlich als Speicherort für das Home-Verzeichnis verwendet, ebenso wie der Schrägstrich als Verzeichnis-Trenner (anstelle des Backslash unter Windows).</p>
+                <p>Die im Beispiel verwendeten Parameter erfüllen folgende Funktionen:</p>
+                <ul>
+                    <li><code>-t rsa</code>: Verwende <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> als Verschlüsselungs-Verfahren, das <code>t</code> stehe hier für <i>&bdquo;Type&ldquo;</i></li>
+                    <li><code>-b 4096</code>: Gibt die Länge des Schlüssels an, in diesem Fall 4096 Bits. Der Mindestwert liegt bei 1024 Bits.</li>
+                    <li><code>-C uxxxx@student.kit.edu</code>: Dies stellt einen Kommentar dar. Der Kommentar hat keinen Einfluss auf die Funktionen des Schlüssels aber dafür den Vorteil, dass man mehrere Schlüssel über den darin mitgegebenen Kommentar einfacher voneinander unterscheiden kann. In diesem Fall wurde eine E-Mail Adresse als Kommentar angegeben.</li>
+                </ul>
+            </article>
+            <article>
+                <h1 id="key-login">Anmeldung ohne Passwort-Eingabe</h1>
+                <p>Ein <span class="ssh">SSH</span> Schlüssel-Paar kann auch verwendet werden, um sich zu identifizieren. Dies kann z.B. wie folgt verwendet werden: Auf eine entfernten Rechner können public-keys von Schlüssel-Paaren hinterlegt werden. Wenn die Person nun eine <span class="ssh">SSH</span> Verbindung aufbauen möchte, dann wird beim Verbindungsaufbau geprüft, ob diese Person den privaten Schlüssel zu einem der öffentlichen Schlüssel hat und falls dies der Fall ist, die Passwort-Abfrage übersprungen.</p>
+                <p>Die Datei, in der die öffentlichen Schlüssel zum passwortlosen Login auf dem entfernten Rechner gespeichert werden, ist: <code>~/.ssh/authorized_keys</code>. Um den passwortlosen Login einzurichten, muss der öffentliche Schlüssel (Inhalt von <code>~/.ssh/id_rsa.pub</code> in diese Datei kopiert werden. Dies lässt sich auch mit mehreren Schlüsseln gleichzeitig machen, indem pro Schlüssel in der Datei eine Zeile verwendet wird.</p>
+                <p>Ein wichtiges Detail sind die Lese-Berechtigungen für diese Datei. Diese können unter Linux über einen Aufruf von <code>ls -l ~/.ssh/authorized_keys</code> ausgelesen werden und befinden sich in der ersten Spalte der Ausgabe. Wichtig ist, dass diese wie folgt aussehen: <code>-rw-r--r--</code>. Wenn die Datei nicht gelesen werden kann (das r fehlt) oder die Datei von anderen Benutzern beschrieben werden kann (mehr w vorhanden), verweigert <span class="ssh">SSH</span> die Nutzung dieser Datei. Über einen Aufruf von <code>chmod 644 ~/.ssh/authorized_keys</code> können die Berechtigungen auf einen zugelassenen Wert gesetzt werden.</p>
+            </article>
+            <article>
+                <h1 id="config">Die <span class="ssh">SSH</span> Konfigurations-Datei</h1>
+                <p>In der Datei <code>~/.ssh/config</code> können auf dem Host-Rechner ein paar Verbindungen konfiguriert werden. z.B. kann ein Eintrag für die Verbindung zu Poolraum gesetzt werden, in dem der Benutzername, die Adresse des Poolraum-Rechners und vielleicht noch ein paar weitere Optionen definiert werden. Dieser Eintrag bekommt einen Namen. Wenn nun diese Verbindung aufgebaut werden soll, kann anstelle eines Aufrufs von</p>
+                <p class="codeblock"><code>ssh user@remote_pc --additional-arguments</code></p>
+                <p>die bequeme Variante  verwendet werden:</p>
+                <p class="codeblock"><code>ssh <i>&lt;name_der_verbindung&gt;</i></code></p>
+                <p>Die folgende Datei ist eine fertige Konfiguration mit der der standard <span class="ssh">SSH</span> Zugang über den Aufruf <code>ssh physik-pool</code> erfolgt bzw. der Zugang zu einem bestimmten Rechner über den Aufruf von <code>ssh physik-pool<i>&lt;01..35&gt;</i></code> aufgebaut werden kann.</p>
+                <p class="codeblock"><a href="./physpool.conf">⚙️ physpool.conf</a></p>
+                <p>Um diese Konfiguration richtig zu verwenden, muss die Datei heruntergeladen und in den Ordner <code>~/.ssh/</code> abgelegt werden. Innerhalb dieser Datei muss noch der Benutzername in Zeile 2 auf das richtige U-Kürzel gesetzt werden. Zu guter Letzt fehlt noch der Eintrag in der Datei <code>~/.ssh/config</code>, der die zusätzliche Konfigurations-Datei aktiviert. Dazu muss die folgende Zeile hinzugefügt werden:</p>
+                <p class="codeblock"><code>Include physpool.conf</code> </p>
             </article>
         </main>
         <footer>
