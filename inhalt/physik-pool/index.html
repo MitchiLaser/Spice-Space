@@ -45,7 +45,7 @@
             <article id="access-windows-10">
                 <h1>Zugang unter Windows 10</h1>
                 <section>
-                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Deshalb muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b> zu öffnen. Beide Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
+                    <p>Bei Windows 10 wird ein <span class="ssh">SSH</span> Client mitgeliefert. Deshalb muss nichts weiter getan werden als die <b>Eingabeaufforderung</b> oder <b>PowerShell</b>  oder das neue <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=de-de&gl=de" target="_blank">Windows Terminal</a> zu öffnen (das Windows Terminal wird im Vergleich zu den zwei Alternativen empfohlen, da es Unicode-Unterstützung mit sich bringt und auch Emojis anzeigen kann, wozu die anderen zwei Programme nicht fähig sind). Alle Programme lassen sich über die Suchfunktion im Startmenü finden. Dort angekommen, muss zum Herstellen einer <span class="ssh">SSH</span> Verbindung folgender Befehl eingegeben werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird:</p>
                     <p class="codeblock"><code>ssh uxxxx@fphctssh.physik.kit.edu</code></p>
                     <p>Nach Eingabe des Oben &#x2b06 stehenden Befehls und des Passworts (Passwort wird nach dem Herstellen einer Verbindung abgefragt) ist man im Terminal-Fenster via <span class="ssh">SSH</span> mit einem Poolraum-Rechner verbunden. Bei der allerersten <span class="ssh">SSH</span> Sitzung mit einem Server muss die Akzeptanz des Schlüssels des Servers durch eine Eingabe von <code>yes</code> bestätigt werden. Beendet wird die <span class="ssh">SSH</span> Sitzung mit einer Eingabe des Wortes <code>exit</code>.</p>
                 </section>
@@ -216,10 +216,16 @@
                 <p>Nach dem Aufruf wird abgefragt, wo der Schlüssel gespeichert werden soll und ob dieser Schlüssel mit einem Passwort geschützt werden soll. Wenn sattdessen nichts eingegeben wird und einfach mit der Enter-Taste bestätigt wird, werden die Default-Werte verwendet: Kein Passwort und <code>~/.ssh/id_rsa</code> als Speicherort für den privaten Schlüssel sowie <code>~/.ssh/id_rsa.pub</code> für den öffentlichen Schlüssel. Dabei ist das Tilde-Symbol <code>~</code> ein Synonym für das Home-Verzeichnis des Benutzers, unter Linux und Mac über selbiges Zeichen (z.B. <code>cd ~</code>) erreichbar und unter Windows in <code>c:\Users\...</code> . Dieses Symbol wird auf der ganzen Webseite einheitlich als Speicherort für das Home-Verzeichnis verwendet, ebenso wie der Schrägstrich als Verzeichnis-Trenner (anstelle des Backslash unter Windows).</p>
                 <p>Die im Beispiel verwendeten Parameter erfüllen folgende Funktionen:</p>
                 <ul>
-                    <li><code>-t rsa</code>: Verwende <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> als Verschlüsselungs-Verfahren, das <code>t</code> stehe hier für <i>&bdquo;Type&ldquo;</i></li>
+                    <li><code>-t rsa</code>: Verwende <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> als Verschlüsselungs-Verfahren, das <code>t</code> stehe hier für <i>&bdquo;Type&ldquo;</i>. Anstelle von RSA kann auch ein ED25519 Schlüssel verwendet werden (siehe weiter unten &darr;)</li>
                     <li><code>-b 4096</code>: Gibt die Länge des Schlüssels an, in diesem Fall 4096 Bits. Der Mindestwert liegt bei 1024 Bits.</li>
                     <li><code>-C uxxxx@student.kit.edu</code>: Dies stellt einen Kommentar dar. Der Kommentar hat keinen Einfluss auf die Funktionen des Schlüssels aber dafür den Vorteil, dass man mehrere Schlüssel über den darin mitgegebenen Kommentar einfacher voneinander unterscheiden kann. In diesem Fall wurde eine E-Mail Adresse als Kommentar angegeben.</li>
                 </ul>
+
+                <section>
+                    <h2>RSA oder ED25519 Schlüssel?</h2>
+                    <p>RSA hat sich in der Vergangenheit als gängiges Verschlüsselungs-Verfahren durchgesetzt. Mittlerweile gibt es neuere Verschlüsselungs-Verfahren, wie z.B. <a href="https://en.wikipedia.org/wiki/EdDSA">ED25519</a>, welche mehr Performance und eine höhere Sicherheit anbieten. Mehr Informationen dazu sind <a href="https://docs.gitlab.com/ee/user/ssh.html">in der Gitlab-Dokumentation</a> zu finden.</p>
+                    <p>Bei der Verwendung eines ED25519 Schlüssels wird der Schlüssel in den Dateien <code>~/.ssh/id_ed25519.pub</code> und <code>~/.ssh/id_ed25519</code> gespeichert. Dementsprechend ist darauf zu achten, dass bei der Ausführung einer der Beispiele auf dieser Webseite der Pfad zum Schlüssel auch richtig verwendet wird.</p>
+                </section>
             </article>
             <article>
                 <h1 id="key-login">Anmeldung ohne Passwort-Eingabe</h1>
