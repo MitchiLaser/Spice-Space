@@ -153,7 +153,7 @@
 
                 <section>
                     <h2>Einbindung über den Dateimanager</h2>
-                    <p>Unter Linux gibt es Dateimanager die die Einbindung des Physik-Poolraums in den Dateimanager unterstützen. Dazu bietet der Dateimanager häufig einen Option namens <b>Mit Sevrer verbinden</b> oder ähnlich an. Hier kann nun die Adresse des Servers eingetragen werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird. Die Adresse sieht folgendermaßen aus:</p>
+                    <p>Unter Linux gibt es Dateimanager die die Einbindung des Physik-Poolraums in den Dateimanager unterstützen. Dazu bietet der Dateimanager häufig einen Option namens <b>Mit Server verbinden</b> oder ähnlich an. Hier kann nun die Adresse des Servers eingetragen werden, mit dem Zusatz, dass anstelle von <i>uxxxx</i> der Benutzername des zugehörigen Poolraum-Accounts verwendet wird. Die Adresse sieht folgendermaßen aus:</p>
                     <p class="codeblock"><code>sftp://<b>uxxxx</b>@fphctssh.physik.kit.edu/</code></p>
                     <p>Die nachfolgenden Bilder zeigen das Eingabefenster und den Dialog zur Passwort-Abfrage unter dem Dateimanager <i>Nautilus</i>, der bei der Linux-Distribution <i>Ubuntu</i> mitgeliefert wird. Die einzugebenden Login-Daten wurden im ersten Bild gelb hinterlegt.</p>
                     <p><img alt="lin-dateimanager-adresse" src="images/lin-dateimanager-adresse.png"></p>
@@ -189,6 +189,11 @@
                 <h1>Problembehandlung</h1>
                 <h2>Passwort zu oft falsch eingegeben</h2>
                 <p>Bei einem Verbindungsversuch besteht drei mal die Möglichkeit, das Passwort einzugeben. Wurde das Password auch beim dritten mal nicht korrekt eingegeben so bleibt diesem Rechner der Zugang zum Poolraum verwehrt. Ein erneuter Anmeldeversuch ist erst nach 24h möglich.</p>
+
+                <h2>Nach Anmeldungen auf anderen Poolraum-Rechnern scannen</h2>
+                <p>Manche Programme können nur in einer Sitzung auf einem Rechner gleichzeitig laufen. Dazu gehört z.B. der Firefox-Browser, der das Benutzerprofil auf der laufenden Sitzung sperrt wodurch in einer weiteren Sitzung dieses Programm nicht mehr verwendet werden kann. Falls eine Sitzung auf einem der Poolraum-PCs aktiv sein sollte aber vergessen wurde, auf welchem Rechner diese Sitzung läuft, kann über einen Aufruf von</p>
+                <p class="codeblock"><code>$ where_am_i_logged_in.py</code></p>
+                <p>aus der Kommandozeile ermittelt werden, auf welchem Poolraum-Rechner noch eine grafische Sitzung für den aktuell verwendeten Benutzer läuft (Hinweis: Hierbei handelt es sich um ein Skript, welches über die Pfad-Variable von überall aus aufgerufen werden kann). Das Programm verwendet <span class="ssh">SSH</span> um die PCs nach einer laufenden Sitzung abzufragen. Damit das Skript sich ohne Passwort-Eingabe mit den PCs verbinden kann, muss auf den Poolraum-Rechnern der Login über den SSH-Schlüssel aktiviert werden. Mehr Informationen dazu sind weiter unten im Abschnitt "Anmeldung ohne Passwort-Eingabe" zu finden bzw. kann dazu auch auf den Poolraum-Rechnern der Befehl <code>$&nbsp;enable_ssh_key_pool.sh</code> zur automatischen Einrichtung ausgeführt werden.</p>
             </article>
             <article id="print">
                 <h1>Drucken via Fernzugriff</h1>
@@ -232,6 +237,7 @@
                 <p>Ein <span class="ssh">SSH</span> Schlüssel-Paar kann auch verwendet werden, um sich zu identifizieren. Dies kann z.B. wie folgt verwendet werden: Auf eine entfernten Rechner können public-keys von Schlüssel-Paaren hinterlegt werden. Wenn die Person nun eine <span class="ssh">SSH</span> Verbindung aufbauen möchte, dann wird beim Verbindungsaufbau geprüft, ob diese Person den privaten Schlüssel zu einem der öffentlichen Schlüssel hat und falls dies der Fall ist, die Passwort-Abfrage übersprungen.</p>
                 <p>Die Datei, in der die öffentlichen Schlüssel zum passwortlosen Login auf dem entfernten Rechner gespeichert werden, ist: <code>~/.ssh/authorized_keys</code>. Um den passwortlosen Login einzurichten, muss der öffentliche Schlüssel (Inhalt von <code>~/.ssh/id_rsa.pub</code> in diese Datei kopiert werden. Dies lässt sich auch mit mehreren Schlüsseln gleichzeitig machen, indem pro Schlüssel in der Datei eine Zeile verwendet wird.</p>
                 <p>Ein wichtiges Detail sind die Lese-Berechtigungen für diese Datei. Diese können unter Linux über einen Aufruf von <code>ls -l ~/.ssh/authorized_keys</code> ausgelesen werden und befinden sich in der ersten Spalte der Ausgabe. Wichtig ist, dass diese wie folgt aussehen: <code>-rw-r--r--</code>. Wenn die Datei nicht gelesen werden kann (das r fehlt) oder die Datei von anderen Benutzern beschrieben werden kann (mehr w vorhanden), verweigert <span class="ssh">SSH</span> die Nutzung dieser Datei. Über einen Aufruf von <code>chmod 644 ~/.ssh/authorized_keys</code> können die Berechtigungen auf einen zugelassenen Wert gesetzt werden.</p>
+		        <p>Unter den Poolraum-Rechnern untereinander kann der passwortlose Login über einen Aufruf des Befehlt <code>$&nbsp;enable_ssh_key_pool.sh</code> automatisch eingerichtet werden (das Skript kann, da es über die Pfad-Variable erreichbar ist, von überall aus aufgerufen werden).</p>
             </article>
             <article>
                 <h1 id="config">Die <span class="ssh">SSH</span> Konfigurations-Datei</h1>
