@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <title>DASK - Physpool</title>
+        <meta name="viewport" content="initial-scale=2, maximum-scale=1">
+        <link rel="icon" type="image/svg+xml" href="images/favicon.svg" sizes="any">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>\\ <em>DASK</em> ?</h1>
+        </header>
+        <main>
+
+            <nav>
+                <h1>Table of content</h1>
+                <ul>
+                    <li><a href="#introduction">Intro<em>DASK</em>tion: What is <em>DASK</em>?</a></li>
+                    <li><a href="#setup"><em>DASK</em> Setup</a></li>
+                </ul>
+            </nav>
+
+            <article id="introduction">
+                <h1>What is <em>DASK</em>?</h1>
+                <p><em>DASK</em> is a Python framework to provide simple access to parallel processing and distributed computing.</p>
+                <h2>More details, please!</h2>
+                <p>You are writing Python scripts which takes longer than your lifetime to run on your laptop and you are looking for the easiest way to speed up the execution by running the process on multiple CPU cores? You want your application to run on a cluster of computers but you don't want to be bothered by the implementation details of parallel computation? Setting up a computing cluster is nothing you want to deal with in order to run your Python program with decent speed? Seems like <em>DASK</em> is the tool you are looking for!</p>
+                <h2>But I don't have two dozen computers at home to build my own cluster.</h2>
+                <p>Don't worry, you are not alone with this problem. The computer pool from the physics faculty at KIT is a collection of 34 PCs which are all accessible via an SSH interface. Furthermore on every computer the user home directories are synchronised through a network drive: The files are the same across all devices. With some configuration, which is provides on this website, and reasonable modifications to a Python program the computers can be used to enhance computationally heavy tasks. The <em>DASK</em> framework takes the responsibility to distribute the workload among the nodes in this cluster and manages all the resulting effort.</p>
+                <h2>Which rules do I have to follow when I want to use the computers?</h2>
+                <p>When you registered for an account you already agreed to the computing rules which can be <a href="https://comp.physik.kit.edu/Account/Benutzerordnung.html" target="_blank">found here</a> to look up. This implies that using a <em>DASK</em> cluster on some / all the computers is allowed if it is used for a purpose that has something to do with your studies.<!-- Using the cluster for private purposes which do not count towards your studies is strictly forbidden.--> Illegal actions like mining for cryptographic currencies or downloading copyrighted media from the internet are going to be detected and the user will be taken into responsibility. In case you have any concerns you can always ask the administrator or the "poolraum-hiwi" for their advice.</p>
+                <p>Furthermore we ask you to care about other users. The computers are also used for tutorials and practical curses which cannot take place when they are overloaded. Therefore we want you to limit the resource allocation on every node as it is done in the examples provided on this website so that the computers are not completely taken by a single person. If you still need more power you can do your computation with higher resource allocation overnight when no user is sitting in front of the devices but pay attention that everything is done until the morning. When this is still not enough for you: Sorry but you should look for another platform to run your code, maybe go back to the idea of building your own cluster?</p>
+            </article>
+
+            <article id="setup">
+                <h1><em>DASK</em> Setup</h1>
+                <h2>Step 1: Install Software</h2>
+                <p>First the <em>DASK</em> python libraries need to be installed. Installing all of them at once is the easiest and most intrusive way to add the framework to your Python environment.</p>
+                <p class="codeblock shellcode shellcode"><code>pip install dask[complete]</code></p>
+                <p>You can also install only the components you need but then you have to make sure that all your dependencies are available:</p>
+                <ul>
+                    <li><code>pip install dask[array]</code>: Install <em>DASK</em> and <a href="https://numpy.org/">numpy</a></li>
+                    <li><code>pip install dask[dataframe]</code>: Install <em>DASK</em>, <a href="https://numpy.org/">numpy</a> and <a href="https://pandas.pydata.org/">pandas</a></li>
+                    <li><code>pip install dask[bag]</code>: Install <em>DASK</em> and <a href="https://github.com/cloudpipe/cloudpickle">cloudpickle</a></li>
+                    <li><code>pip install dask</code>: Install only <em>DASK</em>. This might be useful if you only want to install the task scheduler.</li>
+                </ul>
+                <p>When you install these packages on one of the PCs from the computing pool then they are going to be available on all of the machines. Make sure you install them in you user directory. If <code>pip</code> starts to complain then add the <code>--user</code> option which tells it to use your home directory as the target location for the installation.</p>
+                <h2>Step 2: Cluster Configuration</h2>
+                <p>Let's talk about the <i>not recommended but in this case necessary</i> way to set up a cluster: Using only SSH. For more information about establishing an SSH connection please take a look into the <a href="https://spice-space.de/inhalt/physik-pool/">Instructions for using SSH for the physics computer pool</a>. After you know how to establish an SSH connection you have to setup the <a href="https://spice-space.de/inhalt/physik-pool/#key-login">passwordless login to remote devices via the SSH key</a>. Doing this by calling the <code>enable_ssh_key_pool.sh</code> script is highly recommended if you don't know what you are doing.</p>
+                <p>TODO: Continue writing!</p>
+            </article>
+
+        </main>
+        <footer>
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>&nbsp;<a href="https://www.spice-space.de/navigation/ueber-michi/">Michael Hohenstein</a>, 2024</p>
+            <p><a href="https://spice-space.de/inhalt/datenschutz/">Datenschutz</a> | <a href="https://spice-space.de/inhalt/impressum/">Impressum</a></p>
+        </footer>
+    </body>
+</html>

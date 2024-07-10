@@ -1,0 +1,216 @@
+/* global variables */
+:root{
+    --header-background-color: #262326;
+    --layout-font-color: #fff;
+    --heading-background-color: #000;
+    --daskh-heading-yellow: #ffc11e;
+    /*--h2-orange: #fc6e6b;*/
+    --h2-orange: #E74C3C;
+    --red-border-and-text: #ef1161;
+    --em-color: var(--red-border-and-text);
+
+    --main-max-width: 1000px;
+}
+
+/* general settings */
+a,
+a:link,
+a:visited{
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration-color: inherit;
+}
+a:hover,
+a:active{
+    text-decoration: underline;
+}
+
+p{
+    line-height: 1.6;
+    margin: 20px 5%;
+}
+p:not(.codeblock) code,
+li code{
+    color: var(--h2-orange);
+    padding: 1px 5px;
+    border: solid 1px #78909c;
+}
+p.codeblock code{ /* TODO: Currently this formatting is just crap */
+    display: inline-block;
+    padding: 1rem;
+    border: dashed 2px var(--h2-orange);
+}
+p.shellcode code::before{ /* TODO: Currently this formatting is just crap */
+    content: "$ ";
+}
+
+em{
+    font-family: monospace;
+    color: var(--em-color);
+    background: inherit;
+    text-decoration-color: var(--em-color);
+    border-radius: 0.5rem;
+    font-size: inherit;
+    font-style: unset;
+}
+
+/* document structure */
+html,
+body{
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-family: sans-serif;
+    min-width: 680px;
+    height: 100vh;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #EEEEEE;
+    /* TODO: Welche der zwei Farben ist besser? */
+    /*background-image: radial-gradient(var(--header-background-color) 1px, transparent 0);*/
+    background-image: radial-gradient(#78909c 1px, transparent 0);
+    background-size: 50px 50px;
+    font-size: 1rem;
+}
+body > *{
+    flex: 0 0 auto;
+    display: block;
+    padding: 10px 5%;
+    font-family: sans-serif;
+}
+
+
+/* Header */
+header{
+    font-family: monospace;
+    font-size: 1.6rem;
+    background-color: var(--header-background-color);
+    color: var(--layout-font-color);
+    padding: 2% 5%;
+}
+header h1{
+    color: #fff;
+}
+header h1 em{
+    color: var(--daskh-heading-yellow);
+}
+
+
+/* Footer */
+footer{
+    font-family: monospace;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--header-background-color);
+    color: var(--layout-font-color);
+    font-size: 1.1rem;
+    padding-bottom: 0;
+}
+footer p{
+    margin: 10px;
+    vertical-align: middle;
+}
+footer p:first-child{
+    margin-left: 0;
+}
+footer p:last-child{
+    margin-right: 0;
+}
+
+/* center the logo */
+footer p:first-child{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* main content */
+main{
+    flex: 1 1 auto;
+    font-family: sans-serif;
+    max-width: var(--main-max-width);
+    background: inherit;
+    background-image: none;
+    padding: 0 0.5%; /* TODO: check if this breaks something (padding and margin swapped but % as unit is scary) */
+    margin: 10px 4.5%;
+}
+main h1{
+    color: #fff;
+    background-color: var(--heading-background-color);
+    border: solid 5px var(--red-border-and-text);
+    border-radius: 0.7rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 2rem;
+}
+main h2{
+    color: var(--h2-orange);
+    margin-left: 5%;
+    margin-right: 5%;
+}
+main h1 em,
+main h2 em{
+    background-color: inherit;
+    color: var(--daskh-heading-yellow);
+}
+
+main em{
+    font-weight: inherit;
+}
+
+main ul{
+    display: block;
+    list-style-type: none;
+    margin: 0 5%;
+    padding: 0;
+    font-size: 1.2rem;
+}
+main li{
+    margin: 0.9rem 3%;
+    list-style-position: inside;
+}
+main li::marker{
+    content: "→ ";
+    color: var(--header-background-color);
+}
+
+main article ul{
+    margin: 0 5%;
+    font-size: inherit;
+}
+
+/* exclude table of content from link definitions */
+main > *:not(nav) a,
+main > *:not(nav) a:link,
+main > *:not(nav) a:visited{
+    color: inherit;
+    text-decoration: underline var(--red-border-and-text);
+}
+
+/* these are the rules for the nav-bar and for link lists */
+main ul a,
+main ul a:link,
+main ul a:visited{
+    color: inherit;
+}
+
+
+/* break-point for smartphones */
+@media (max-width: 1100px){
+    body{
+        background-image: none;
+    }
+}
+@media (max-width: 730px){
+    footer{
+        flex-direction: column;
+    }
+    footer > p{
+        margin: 10px 0;
+    }
+}
