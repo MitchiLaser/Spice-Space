@@ -34,6 +34,7 @@
                     <li><a href="#generate-key"><span class="ssh">SSH</span> Schlüssel erzeugen</a></li>
                     <li><a href="#key-login">Anmeldung ohne Passwort-Eingabe</a></li>
                     <li><a href="#config">Die <span class="ssh">SSH</span> Konfigurations-Datei</a></li>
+                    <li><a href="#cluster">Cluster-Nutzung der Poolraum-Rechner</a></li>
                 </ul>
             </nav>
             <article id="about-ssh">
@@ -248,6 +249,16 @@
                 <p class="codeblock"><a href="./physpool.conf">⚙️ physpool.conf</a></p>
                 <p>Um diese Konfiguration richtig zu verwenden, muss die Datei heruntergeladen und in den Ordner <code>~/.ssh/</code> abgelegt werden. Innerhalb dieser Datei muss noch der Benutzername in Zeile 2 auf das richtige U-Kürzel gesetzt werden. Zu guter Letzt fehlt noch der Eintrag in der Datei <code>~/.ssh/config</code>, der die zusätzliche Konfigurations-Datei aktiviert. Dazu muss die folgende Zeile hinzugefügt werden:</p>
                 <p class="codeblock"><code>Include physpool.conf</code> </p>
+            </article>
+
+            <article>
+                <h1 id="cluster">Cluster-Nutzung der Poolraum-Rechner</h1>
+                <p>Die Poolraum-Rechner können, solange die Anwendung den Nutzungsregeln entspricht, als Verbund genutzt werden um aufwendige Arbeiten schneller auszuführen. Dabei wird zwischen High-Throughput und High-Performance Anwendungen unterschieden. Für beiden Anwendungsfälle existieren unterschiedliche Lösungen.</p>
+                <section>
+                    <h2>PISA - High Throughput</h2>
+                    <p>"Pseudo Infrastructure for Scaleable Applications" (PISA) ist ein Batch-System für den Computer-Poolraum. In Fällen, für die ein Programm mehrfach aber mit veränderten Eingaben ausgeführt werden muss, werden alle Variationen der Eingaben an PISA übergeben und die einzelnen Aufgaben (Jobs) auf die Rechner verteilt. PISA parallelisiert die Ausführung der Aufgaben, was nur dann funktioniert, wenn alle Jobs unabhängig voneinander laufen können.</p>
+                    <p>Weitere Informationen über die Benutzung sowie ein Beispiel-Programm sind in der <a href="https://mitchilaser.github.io/pisa/">Dokumentation von PISA</a> zu finden.</p>
+                </section>
             </article>
         </main>
         <footer>
